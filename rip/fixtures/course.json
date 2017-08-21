@@ -1,0 +1,22 @@
+[
+	{
+		"model": "rip.courses",
+		"pk": 1,
+		"fields": {
+			"name": "CSC106",
+			"fullname": "The Practice of Computer Science",
+			"description": "A survey of aspects of the application of Computer Science.",
+			"score": 5
+		}
+	},
+	{
+		"model": "rip.courses",
+		"pk": 2,
+		"fields": {
+			"name": "CSC110",
+			"fullname": "Fundamentals of Programming I",
+			"description": "Introduction to designing, implementing, and understanding computer programs using an object-oriented programming language.",
+			"score": 5
+		}
+	}
+]
