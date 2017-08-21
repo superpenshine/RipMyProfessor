@@ -11,11 +11,11 @@
 <p></p>
 <hr>
 <p><b>Create new course</b></p>
+<form action="http://127.0.0.1:8000/courses/" method='post'>
+{% csrf_token %}
 <label>course name</label>
 <input type="text" name="course_name" placeholder="Enter new course name" required>
 <p></p>
-<form action="http://127.0.0.1:8000/courses/" method='post'>
-{% csrf_token %}
 <label>course fullname</label>
 <input type="text" name="course_fullname" placeholder="Enter full course name">
 <p></p>
@@ -25,6 +25,15 @@
 <label>course initial score</label>
 <input type="text" name="course_score_initial" placeholder="Enter initial score">
 <p></p>
-<button type="submit">Create</button>
+<button type="submit" name="action" value="add">Create</button>
+</form>
+
+<p><b>Delete course</b></p>
+<form action="http://127.0.0.1:8000/courses/" method='post'>
+{% csrf_token %}
+<label>course name</label>
+<input type="text" name="course_name" placeholder="Enter a course name to delete" required>
+<p></p>
+<button type="submit" name="action" value="delete">Delete</button>
 </form>
 </body>
