@@ -3,6 +3,7 @@
     {% for course in courses_list %}
     	<span>{{course.name}}</span>
         <li><a href="/courses/{{ course.name }}/">{{ course.fullname }}</a></li>
+        <br>
     {% endfor %}
     </ul>
 {% else %}
@@ -11,6 +12,7 @@
 <p></p>
 <hr>
 <p><b>Create new course</b></p>
+
 <form action="http://127.0.0.1:8000/courses/" method='post'>
 {% csrf_token %}
 <label>course name</label>
