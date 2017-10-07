@@ -1,41 +1,65 @@
-<body>{% if courses_list %}
-    <ul>
-    {% for course in courses_list %}
-    	<span>{{course.name}}</span>
-        <li><a href="/courses/{{ course.name }}/">{{ course.fullname }}</a></li>
-        <br>
-    {% endfor %}
-    </ul>
-{% else %}
-    <p>No rip are available.</p>
-{% endif %}
-<p></p>
-<hr>
-<p><b>Create new course</b></p>
+<!DOCTYPE html>
+<html>
 
-<form action="http://127.0.0.1:8000/courses/" method='post'>
-{% csrf_token %}
-<label>course name</label>
-<input type="text" name="course_name" placeholder="Enter new course name" required>
-<p></p>
-<label>course fullname</label>
-<input type="text" name="course_fullname" placeholder="Enter full course name">
-<p></p>
-<label>course description</label>
-<input type="text" name="course_description" placeholder="Enter course description">
-<p></p>
-<label>course initial score</label>
-<input type="text" name="course_score_initial" placeholder="Enter initial score">
-<p></p>
-<button type="submit" name="action" value="add">Create</button>
-</form>
+<head>
+{% load static %}
+<link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+<title>Haotian Shen</title>
+</head>
 
-<p><b>Delete course</b></p>
-<form action="http://127.0.0.1:8000/courses/" method='post'>
-{% csrf_token %}
-<label>course name</label>
-<input type="text" name="course_name" placeholder="Enter a course name to delete" required>
-<p></p>
-<button type="submit" name="action" value="delete">Delete</button>
-</form>
+<body>
+<h1 class="page_title">Rip My Professor</h1>
+<div class="body_div">
+	<div class="course_list_div">
+		{% if courses_list %}
+	    <ul>
+	    	{% for course in courses_list %}
+	    		<span>{{course.name}}</span>
+	       		<li><a href="/courses/{{ course.name }}/">{{ course.fullname }}</a></li>
+	        	<br>
+	    	{% endfor %}
+	    </ul>
+		{% else %}
+	    	<p>No rip are available.</p>
+		{% endif %}
+	</div>
+
+	<hr>
+	
+	<div class="add_course_div">
+		<p><b>Create new course</b></p>
+		<form action="http://127.0.0.1:8000/courses/" method='post'>
+		{% csrf_token %}
+		<label>course name</label>
+		<input type="text" name="course_name" placeholder="Enter new course name" required>
+		<p></p>
+		<label>course fullname</label>
+		<input type="text" name="course_fullname" placeholder="Enter full course name">
+		<p></p>
+		<label>course description</label>
+		<input type="text" name="course_description" placeholder="Enter course description">
+		<p></p>
+		<label>course initial score</label>
+		<input type="text" name="course_score_initial" placeholder="Enter initial score" class="input_score">
+		<p></p>
+		<button type="submit" name="action" value="add">Create</button>
+		</form>
+	</div>
+	
+	<hr>
+
+	<div class="delete_course_div">
+		<p><b>Delete course</b></p>
+		<form action="http://127.0.0.1:8000/courses/" method='post'>
+		{% csrf_token %}
+		<label>course name</label>
+		<input type="text" name="course_name" placeholder="Enter a course name to delete" required>
+		<p></p>
+		<button type="submit" name="action" value="delete">Delete</button>
+		</form>
+	</div>
+
+</div>
 </body>
+
+</html>

@@ -5,6 +5,7 @@ from django.views.decorators.cache import cache_page
 from .models import courses
 from .services import *
 import re
+
 # Create your views here.
 #TTL = 15
 #@cache_page(TTL)
@@ -39,7 +40,7 @@ def index(request):
 			course_name = request.POST.get("course_name")
 			courses.objects.filter(name=course_name).delete()
 
-		print(request.POST.get("action")+"ing "+course_name)
+		#print(request.POST.get("action")+"ing "+course_name)
 		update_cache()
 		return redirect("http://127.0.0.1:8000/courses/")
 
