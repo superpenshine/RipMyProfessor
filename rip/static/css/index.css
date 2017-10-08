@@ -2,8 +2,29 @@ input.input_score{
 	width:30px;
 }
 
-li a {
+input.input_course_name{
+	width:50px;
+}
+
+input.input_course_fullname{
+	width:200px;
+}
+
+textarea.course_desc{
+	resize: none;
+}
+
+span.wordCheck{
+	font-size:10px;
+}
+
+li{
+	list-style-type: none;
+}
+
+a {
     color: green;
+	text-decoration: none;
 }
 
 body{

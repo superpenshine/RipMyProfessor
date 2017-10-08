@@ -4,6 +4,7 @@
 <head>
 {% load static %}
 <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{% static 'javascript/courses.js'%}"></script>
 <title>Haotian Shen</title>
 </head>
 
@@ -31,13 +32,20 @@
 		<form action="http://127.0.0.1:8000/courses/" method='post'>
 		{% csrf_token %}
 		<label>course name</label>
-		<input type="text" name="course_name" placeholder="Enter new course name" required>
+		<input type="text" name="course_name" placeholder="Enter new course" class="input_course_name" required>
 		<p></p>
 		<label>course fullname</label>
-		<input type="text" name="course_fullname" placeholder="Enter full course name">
+		<input type="text" name="course_fullname" placeholder="Enter full course name" class="input_course_fullname">
 		<p></p>
-		<label>course description</label>
-		<input type="text" name="course_description" placeholder="Enter course description">
+
+		<div>
+			<div>
+				<label>course description</label>
+				<textarea type="text" name="course_description" placeholder="Enter course description" class="course_desc" rows="10" cols="50" maxlength="500" onkeyup="checkWord(this);"></textarea>
+				<span id="wordCheck" class="wordCheck">500</span><span class="wordCheck">/500</span>
+			</div>
+		</div>
+
 		<p></p>
 		<label>course initial score</label>
 		<input type="text" name="course_score_initial" placeholder="Enter initial score" class="input_score">

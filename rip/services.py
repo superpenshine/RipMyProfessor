@@ -8,13 +8,13 @@ def get_all_courses():
 		return cache.get('all_courses')
 	else:
 		all_courses = list(courses.objects.order_by('name'))
-		cache.set('all_courses', all_courses, 15)
+		cache.set('all_courses', all_courses, 0)
 		return all_courses
 
 def update_cache():
 
 	all_courses = list(courses.objects.order_by('name'))
-	cache.set('all_courses', all_courses, 15)
+	cache.set('all_courses', all_courses, 0)
 
 def get_course_detail_by_name(course_name):
 
@@ -22,5 +22,5 @@ def get_course_detail_by_name(course_name):
 		return cache.get(course_name)
 	else:
 		course = get_object_or_404(courses, name=course_name)
-		cache.set(course_name, course, 15)
+		cache.set(course_name, course, 0)
 		return course
