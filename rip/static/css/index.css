@@ -1,3 +1,13 @@
+input:hover{
+	transition-duration:0.218s;
+	box-shadow: 0px 3px 8px #888888;
+}
+
+textarea:hover{
+	transition-duration:0.218s;
+	box-shadow: 0px 3px 8px #888888;
+}
+
 input.input_score{
 	width:30px;
 }
