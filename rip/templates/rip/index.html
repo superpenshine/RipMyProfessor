@@ -3,20 +3,40 @@
 
 <head>
 {% load static %}
+<meta name="author" content="Simon Shen">
+
 <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 <script type="text/javascript" src="{% static 'javascript/courses.js'%}"></script>
-<title>Haotian Shen</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<title>Rip My Professor !s</title>
 </head>
 
 <body>
+<div>
+	<nav class="navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header"><a class="navbar-brand" href="http://127.0.0.1:8000/courses/">Rip My Professor</a></div>
+			<ul class="nav navbar-nav">
+				<li class="active"><a href="#">Home</a></li>
+				<li><a href="#">Page1</a></li>
+				<li><a href="#">Page2</a></li>
+				<li><a href="#">Page3</a></li>
+			</ul>
+		</div>
+	</nav>
+</div>
 <h1 class="page_title">Rip My Professor</h1>
 <div class="body_div">
 	<div class="course_list_div">
 		{% if courses_list %}
 	    <ul>
 	    	{% for course in courses_list %}
-	    		<span>{{course.name}}</span>
-	       		<li><a href="/courses/{{ course.name }}/">{{ course.fullname }}</a></li>
+	    		<div class="courselist_name"><span><a href="/courses/{{ course.name }}/">{{ course.name }}</a></span></div>
+	    		<div class="courselist_fullname"><li><a href="/courses/{{ course.name }}/">{{ course.fullname }}</a></li></div>
 	        	<br>
 	    	{% endfor %}
 	    </ul>
@@ -28,8 +48,8 @@
 	<div>
 		<div>
 			<form action="http://127.0.0.1:8000/courses/" method="get">
-				<input type="text" name="subject" placeholder="Search CSC" class="search_by_subject">
-				<span><button type="submit" name="action" value="search_by_subject">Search</button></span>
+			<input type="text" name="subject" placeholder="Search CSC" class="search_by_subject">
+			<span><button type="submit" name="action" value="search_by_subject">Search</button></span>
 			</form>
 		</div>
 	</div>

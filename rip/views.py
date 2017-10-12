@@ -50,9 +50,12 @@ def index(request):
 		if request.GET.get("action") == "search_by_subject":
 			print("in action")
 			subject = request.GET.get("subject")
+			if subject == "":
+				return render(request, 'rip/index.html', {'courses_list': get_all_courses(),})
 			return render(request, 'rip/index.html', {'courses_list': get_courses_by_subject(subject),})
 		else:
 			return render(request, 'rip/index.html', {'courses_list': get_all_courses(),})
+	#not post nor get
 	else:
 		return render(request, 'rip/index.html', {'courses_list': get_all_courses(),})
 
