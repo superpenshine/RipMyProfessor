@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import urlparse #for heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -88,10 +89,13 @@ DATABASES = {
 #         "LOCATION": "my_cache_table",
 #     }
 # }
+
+redis_url = urlparse.urlparse(os.environ.get('REDIS_URL'))#for heroku
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/0",
+        #"LOCATION": "redis://127.0.0.1:6379/0",
+        "LOCATION": "{0}:{1}/0".format(redis_url.hostname, redis_url.port),#for heroku
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient"
         },
