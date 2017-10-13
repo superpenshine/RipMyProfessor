@@ -98,6 +98,7 @@ CACHES = {
         "LOCATION": "redis://{0}:{1}/0".format(redis_url.hostname, redis_url.port),#for heroku
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PASSWORD": redis_url.password,#for heroku redis login
         },
         "KEY_PREFIX": "example"
     }
