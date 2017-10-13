@@ -14,7 +14,6 @@ import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))#added for heroku
 
 
 # Quick-start development settings - unsuitable for production
@@ -136,8 +135,10 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'assets') #added for heroku
-STATICFILES_DIRS = (os.path.join(PROJECT_ROOT, 'static'), #added for heroku
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles') #added for heroku
+STATICFILES_DIRS = (os.path.join(os.path.join(BASE_DIR, 'rip'), 'static'), #added for heroku
     )
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 STATIC_URL = '/static/'
