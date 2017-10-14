@@ -45,7 +45,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
 	'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',#whitenoise used in heroku
+    #'whitenoise.middleware.WhiteNoiseMiddleware',#whitenoise used in heroku
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -146,7 +146,7 @@ PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
 STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles') #added for heroku
 STATICFILES_DIRS = (os.path.join(os.path.join(BASE_DIR, 'rip'), 'static'), #added for heroku
     )
-STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'#used for whitenoise for heoku
 STATIC_URL = '/static/'
 
 '''
