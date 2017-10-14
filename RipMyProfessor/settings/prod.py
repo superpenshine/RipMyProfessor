@@ -11,9 +11,10 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import urllib.parse #for heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,7 +26,7 @@ SECRET_KEY = 'acg$pthx*c3h97r%ulfu%@3#j$8np-65brmr^zgpjc-l(s(&4j'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['127.0.0.1', '*']
 
 
 # Application definition
@@ -89,12 +90,15 @@ DATABASES = {
 #     }
 # }
 
+redis_url = urllib.parse.urlparse(os.environ.get('REDIS_URL'))#for heroku
 CACHES = {
     "default": {
         "BACKEND": "django_redis.cache.RedisCache",
-        "LOCATION": "redis://127.0.0.1:6379/0",
+        #"LOCATION": "redis://127.0.0.1:6379/0",
+        "LOCATION": "redis://{0}:{1}/0".format(redis_url.hostname, redis_url.port),#for heroku
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
+            "PASSWORD": redis_url.password,#for heroku redis login
         },
         "KEY_PREFIX": "example"
     }
@@ -137,6 +141,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
+PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))#for static root heroku
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles') #added for heroku
+STATICFILES_DIRS = (os.path.join(os.path.join(BASE_DIR, 'rip'), 'static'), #added for heroku
+    )
 STATIC_URL = '/static/'
 
 '''
