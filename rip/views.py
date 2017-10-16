@@ -42,7 +42,7 @@ def index(request):
 
 		#print(request.POST.get("action")+"ing "+course_name)
 		update_cache()
-		return redirect("http://127.0.0.1:8000/courses/")
+		return redirect("/courses/")
 
 	elif request.method == 'GET':
 		print("in get")
