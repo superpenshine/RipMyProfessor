@@ -12,6 +12,18 @@ def get_all_courses():
 		cache.set('all_courses', all_courses, 0)
 		return all_courses
 
+#create an entry in database or update an entry
+def create_or_update(course_name, course_fullname, course_description, course_score_init):
+	if courses.objects.filter(name=course_name).count() != 0:
+		courses.objects.filter(name=course_name).update(fullname=course_fullname, description=course_description, score=course_score_init)
+	else:
+		courses.objects.create(name=course_name, fullname=course_fullname, description=course_description, score=course_score_init)#may not update course score
+
+#delete a course():
+def delete_course(course_name):
+	courses.objects.filter(name=course_name).delete()
+
+#update cache in redis server upon data changes
 def update_cache():
 
 	all_courses = list(courses.objects.order_by('name'))
