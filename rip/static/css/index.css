@@ -1,7 +1,60 @@
+input.navbar-search-input{
+	border-radius: 7px;
+	border: 1px solid #ccc;
+	height: 30px;
+	width: 40vw;
+	min-width: 240px;
+}
+
+@media screen and (max-width: 806px){
+	input.navbar-search-input{
+		width: 70vw;
+	}
+	nav.navbar{
+		background-color: #131a26;
+		height: 150px;
+	}
+}
+
+button.navbar-search-button{
+	floag: left;
+}
+
+.navbar-ul{
+	margin: 0px;
+	padding:0px;
+}
+.navbar-li{
+	float: left;
+	margin-right: 10px;
+}
+.navbar{
+	font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+	font-size: 19px;
+	background-color: #edeeff;
+	height: 60px;
+}
+.navbar-brand{
+	margin-right: 10px;
+}
+.navbar-header{
+	margin-top: 15px;
+	float: left;
+}
+.navbar-body{
+	margin-top: 15px;
+	float: left;
+}
+.navbar-searcher{
+	margin-top: 11px;
+	float: left;
+}
+
 .courselist_fullname{
 	font-size:12px;
 	font-style: italic;
 }
+
 
 select:hover{
 	transition-duration:0.218s;
@@ -38,11 +91,16 @@ li{
 	list-style-type: none;
 }
 
+.navbar a{
+  	color: #6993cb;
+}
+
 a {
-    color: green;
+  	color: #356268;
 	text-decoration: none;
 }
 
 body {
 	color: #303030;
+	margin: 0px;
 }

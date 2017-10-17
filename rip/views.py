@@ -16,7 +16,6 @@ def index(request):
 		#add entry to course table
 		if request.POST.get("action") == "add":
 			course_name = request.POST.get("course_name").replace(" ", "")
-			print ("here1")
 			#not a valid course name (add escape later)
 			if not re.match('^[A-Z]{3,4}[0-9]{3}$', course_name):
 				return render(request, 'rip/index.html', {'courses_list': get_all_courses(),})
@@ -24,7 +23,6 @@ def index(request):
 			course_fullname = request.POST.get("course_fullname", "")
 			course_description = request.POST.get("course_description", "")
 			course_score_init = request.POST.get("course_score_initial", "5.0")
-			print ("here")
 			create_or_update(course_name, course_fullname, course_description, course_score_init)
 
 		#delete entry in course table
@@ -37,10 +35,8 @@ def index(request):
 		return redirect("/courses/")
 
 	elif request.method == 'GET':
-		print("in get")
 		#search by subject
 		if request.GET.get("action") == "search_by_subject":
-			print("in action")
 			subject = request.GET.get("subject")
 			if subject == "":
 				return render(request, 'rip/index.html', {'courses_list': get_all_courses(),})
