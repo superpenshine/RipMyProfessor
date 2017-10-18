@@ -16,7 +16,7 @@
 <body>
 <div>
 	<nav class="navbar">
-		<div class="navbar-header"><a class="navbar-brand" href="/courses/">Rip My Professor</a></div>
+		<div class="navbar-header"><a class="navbar-brand" href="/index/">Rip My Professor</a></div>
 		<div class="navbar-body">
 			<ul class="navbar-ul">
 			<li class="navbar-li"><a href="/courses/">Home</a></li>
@@ -50,8 +50,8 @@
 		<p></p>
 
 		<div>
-			<div>
-				<label>course description</label>
+			<label>course description</label>
+			<div id="course_desc_input_box">
 				<textarea type="text" name="course_description" placeholder="Enter course description" class="course_desc" rows="10" cols="50" maxlength="250" onkeyup="checkWord(this);" onPaste="prevent_paste(this);"></textarea>
 				<span id="wordCheck" class="wordCheck">250</span><span class="wordCheck">/250</span>
 			</div>
