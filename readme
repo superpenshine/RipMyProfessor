@@ -1,4 +1,4 @@
 /index === /courses
-			|
-			|-----courses.html(classify by courses)
-					|-----detail.html(specific course detial)
+	|
+	|-----courses.html(classify by courses)
+				|-----detail.html(specific course detial)
