@@ -63,6 +63,9 @@ input.navbar-search-input{
 		width:200px;
 		height:200px;
 	}
+	nav.navbar a{
+		color:#b0b389;
+	}
 }
 
 button.navbar-search-button{
