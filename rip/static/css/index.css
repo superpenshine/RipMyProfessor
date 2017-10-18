@@ -51,6 +51,14 @@ input.navbar-search-input{
 	float:left;
 }
 
+button.navbar-search-button{
+	display: inline-block;
+	height: 34px;
+	margin-left: 10px;
+	border:2px;
+	border-radius: 7px;
+}
+
 @media screen and (max-width: 840px){
 	input.navbar-search-input{
 		width: 70vw;
@@ -66,13 +74,6 @@ input.navbar-search-input{
 	nav.navbar a{
 		color:#b0b389;
 	}
-}
-
-button.navbar-search-button{
-	float: left;
-	height: 30px;
-	margin-top: 2px;
-	margin-left: 10px;
 }
 
 .navbar-ul{
@@ -102,7 +103,7 @@ button.navbar-search-button{
 }
 .navbar-searcher{
 	margin-top: 11px;
-	float: left;
+	display: inline-block;
 }
 
 .courselist_fullname{
