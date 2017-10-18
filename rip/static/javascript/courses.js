@@ -28,3 +28,10 @@ function prevent_paste(o){
 		num = o.value.substring(0, max_length);
 	}
 }
+
+function showQR(){
+	console.log("clicked");
+	var o = document.getElementById("qr-popup");
+	o.classList.toggle("show");
+
+}

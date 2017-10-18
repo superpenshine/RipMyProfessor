@@ -34,7 +34,7 @@
 	</nav>
 </div>
 <br>
-<h1 class="page_title">Jenkins</h1>
+<h1 class="page_title">Rip My Professor</h1>
 <div class="body_div">
 	<div class="course_list_div">
 		{% if courses_list %}
@@ -90,6 +90,13 @@
 		<p></p>
 		<button type="submit" name="action" value="delete">Delete</button>
 		</form>
+	</div>
+
+	<div class="site-info">
+
+		<div class="qr" onclick="showQR()"><img src="{% static 'media/qr-mini.png' %}">
+  		<span class="qrpopup" id="qr-popup"><img src="{% static 'media/qr-big.png' %}" class="bigqr"></span>
+		</div>
 	</div>
 
 </div>
