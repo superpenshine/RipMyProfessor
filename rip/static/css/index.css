@@ -107,6 +107,9 @@ button.navbar-search-button{
 	font-style: italic;
 }
 
+.navbar a{
+  	color: #6993cb;
+}
 
 select:hover{
 	transition-duration:0.218s;
@@ -141,10 +144,6 @@ span.wordCheck{
 
 li{
 	list-style-type: none;
-}
-
-.navbar a{
-  	color: #6993cb;
 }
 
 a {

@@ -18,7 +18,7 @@ def index(request):
 			course_name = request.POST.get("course_name").replace(" ", "")
 			#not a valid course name (add escape later)
 			if not re.match('^[A-Z]{3,4}[0-9]{3}$', course_name):
-				return render(request, 'rip/index.html', {'courses_list': get_all_courses(),})
+				return render(request, 'rip/courses.html', {'courses_list': get_all_courses(),})
 			#removing spaces
 			course_fullname = request.POST.get("course_fullname", "")
 			course_description = request.POST.get("course_description", "")
@@ -32,15 +32,17 @@ def index(request):
 
 		#print(request.POST.get("action")+"ing "+course_name)
 		update_cache()
-		return redirect("/courses/")
+		return redirect('courses')
 
 	elif request.method == 'GET':
 		#search by subject
 		if request.GET.get("action") == "search_by_subject":
 			subject = request.GET.get("subject")
+
+			#show all subjects later
 			if subject == "":
 				return render(request, 'rip/index.html', {'courses_list': get_all_courses(),})
-			return render(request, 'rip/index.html', {'courses_list': get_courses_by_subject(subject),})
+			return render(request, 'rip/courses.html', {'courses': get_courses_by_subject(subject),})
 		else:
 			return render(request, 'rip/index.html', {'courses_list': get_all_courses(),})
 	#not post nor get
@@ -50,3 +52,7 @@ def index(request):
 #@cache_page(TTL)
 def detail(request, course_name):
 	return render(request, 'rip/detail.html', {'course': get_course_detail_by_name(course_name),})
+
+#@cache_page(TTL)
+def courses(request, subject):
+	return render(request, 'rip/courses.html', {'courses': get_courses_by_subject(subject),});

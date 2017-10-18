@@ -5,7 +5,7 @@
 {% load static %}
 <meta name="author" content="Simon Shen">
 <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
-<title>Course detail</title>
+<title>Courses in subject</title>
 </head>
 
 <body>
@@ -29,8 +29,17 @@
 		<div class="navbar-underlay"></div>
 	</nav>
 </div>
-<h1>{{ course.name }}</h1>
-<p>{{course.fullname}}</p>
-<p>{{course.description}}</p>
-<p>{{course.score}}</p>
+<div class="course_list_div">
+		{% if courses %}
+	    <ul>
+	    	{% for course in courses %}
+	    		<div class="courselist_name"><span><a href="/courses/{{ course.name }}/">{{ course.name }}</a></span></div>
+	    		<div class="courselist_fullname"><li><a href="/courses/{{ course.name }}/">{{ course.fullname }}</a></li></div>
+	        	<br>
+	    	{% endfor %}
+	    </ul>
+		{% else %}
+	    	<p>No rip are available.</p>
+		{% endif %}
+</div>
 </body>
