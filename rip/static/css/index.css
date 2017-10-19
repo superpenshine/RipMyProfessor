@@ -42,6 +42,43 @@
     to {opacity:1 ;}
 }
 
+@media screen and (max-width: 442px){
+	nav.navbar{
+		background-color: #131a26;
+		height: 145px !important;
+	}
+	.navbar-body{
+		margin-left:10px;
+	}
+}
+
+@media screen and (max-width: 838px){
+	input.navbar-search-input{
+		width: 50vw !important;
+		margin-left: 10px;
+	}
+	.navbar-header{
+		margin-left:10px;
+	}
+	.navbar-searcher{
+		padding-top: 5px;
+	}
+	button.navbar-search-button{
+		background-color: #fff98b !important;
+	}
+	nav.navbar{
+		background-color: #131a26;
+		height: 110px;
+	}
+	img.bigqr{
+		width:200px;
+		height:200px;
+	}
+	nav.navbar a{
+		color:#b0b389;
+	}
+}
+
 input.navbar-search-input{
 	border-radius: 7px;
 	border: 1px solid #ccc;
@@ -54,26 +91,9 @@ input.navbar-search-input{
 button.navbar-search-button{
 	display: inline-block;
 	height: 34px;
-	margin-left: 10px;
 	border:2px;
 	border-radius: 7px;
-}
-
-@media screen and (max-width: 856px){
-	input.navbar-search-input{
-		width: 70vw;
-	}
-	nav.navbar{
-		background-color: #131a26;
-		height: 150px;
-	}
-	img.bigqr{
-		width:200px;
-		height:200px;
-	}
-	nav.navbar a{
-		color:#b0b389;
-	}
+	background-color: #9be9d8;
 }
 
 .navbar-ul{
@@ -91,6 +111,7 @@ button.navbar-search-button{
 	height: 60px;
 }
 .navbar-brand{
+	
 }
 .navbar-header{
 	margin-top: 15px;
