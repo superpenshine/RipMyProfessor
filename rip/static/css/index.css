@@ -159,9 +159,9 @@ input.input_course_fullname{
 	width:200px;
 }
 
-#course_desc_input_box{
+#course_desc_input_box_div{
 	position: relative;
-	left: 170px;
+	left: 145px;
 	bottom: 20px;
 	margin-bottom: -20px;
 }
