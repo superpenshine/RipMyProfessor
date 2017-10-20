@@ -7,8 +7,8 @@ updateView();
 
 if (document.addEventListener){
 	window.addEventListener("scroll", function doScroll(){didScroll=true;});
-	window.addEventListener("resize", updateView());
-	window.addEventListener("fullscreenchange", updateView());
+	window.addEventListener("resize", updateView, false);
+	//window.addEventListener("fullscreenchange", updateView, false);
 }
 
 function updateView(){
