@@ -8,7 +8,7 @@
 	}
 	#course_desc_input_box_div{
 		bottom: 0px !important;
-		left: 0px !important;
+		padding-left: 0px !important;
 		margin-bottom: auto !important;
 	}
 	textarea.course_desc{
@@ -18,7 +18,7 @@
 		margin-left:40vw !important;
 	}
 	footer{
-		height: 18vh;
+		height: 100px;
 	}
 }
 
@@ -134,7 +134,7 @@ input.input_course_fullname{
 
 #course_desc_input_box_div{
 	position: relative;
-	left: 153px;
+	padding-left: 153px;
 	bottom: 20px;
 	margin-bottom: -20px;
 }
