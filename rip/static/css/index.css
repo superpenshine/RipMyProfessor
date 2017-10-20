@@ -192,66 +192,45 @@ footer {
 	display: inline-block;
 }
 
-.qr_div{
-    position: relative;
-    display: inline-block;
-    cursor: pointer;
-    top: 8px;
-}
-
 .footer_div .qrpopup {
-    visibility: hidden;
-    background-color: #555;
-    border-radius: 6px;
-    padding: 8px 6px 6px 6px;
-    position: absolute;
-    bottom: 125%;
     margin-left: -450%;
 }
 
-.footer_div .qrpopup::after{
-	content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-.wechat_div {
-	position: relative;
-	display: inline-block;
-	cursor: pointer;
-	top: 8px;
-}
-
 .footer_div .wechatpopup {
-    visibility: hidden;
-    background-color: #555;
-    border-radius: 6px;
-    padding: 8px 6px 6px 6px;
-    position: absolute;
-    bottom: 125%;
     margin-left: -444%;
-}
-
-.footer_div .wechatpopup::after{
-	content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
 }
 
 .footer_div .show {
 	visibility: visible;
 	-webkit-animation: fadeIn 1s;
 	animation: fadeIn 1s;
+}
+
+.icon_common_style{
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    top: 8px;
+}
+
+.popup_content_common_style{
+    visibility: hidden;
+    background-color: #555;
+    border-radius: 6px;
+    padding: 8px 6px 6px 6px;
+    position: absolute;
+    bottom: 125%;
+}
+
+.footer_div .footer_icon_div span::after{
+	content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
 }
 
 @-webkit-keyframes fadeIn {
