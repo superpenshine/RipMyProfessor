@@ -3,18 +3,27 @@ didScroll = false;
 device_type = 0;
 x = 0;
 
-if (window.matchMedia('all and (max-width: 442px)').matches){
-	console.log("small");
-	device_type = 2;
-} else if (window.matchMedia('all and (max-width: 838px)').matches){
-	console.log("middle");
-	device_type = 1;
-} else {
-	console.log("large");
-}
+updateView();
 
 if (document.addEventListener){
 	window.addEventListener("scroll", function doScroll(){didScroll=true;});
+	window.addEventListener("resize", updateView());
+	window.addEventListener("fullscreenchange", updateView());
+}
+
+function updateView(){
+	console.log("Screen changed");
+	if (window.matchMedia('all and (max-width: 442px)').matches){
+	console.log("small");
+	device_type = 2;
+	} else if (window.matchMedia('all and (max-width: 838px)').matches){
+	console.log("middle");
+	device_type = 1;
+	} else {
+	console.log("large");
+	device_type = 0;
+	}
+
 }
 
 setInterval(function fixedNavbar(){
@@ -25,6 +34,7 @@ setInterval(function fixedNavbar(){
 		style = document.getElementById("navbarSearcher").style;
 		//small devices like cellphone
 		if (device_type == 2 && window.pageYOffset > 82){
+			console.log("device type 2");
 			style.position = "fixed";
 			style.display = "block";
 			style.top= "0px";
@@ -36,6 +46,7 @@ setInterval(function fixedNavbar(){
 		}
 		//medium devices like ipad
 		if (device_type == 1 && window.pageYOffset > 40){
+			console.log("device type 1");
 			style.position = "fixed";
 			style.display = "block";
 			style.top= "0px";
@@ -46,6 +57,7 @@ setInterval(function fixedNavbar(){
 			return;
 		}
 		//large devices like pc
+		console.log("scroll condition unsatisfied");
 		style.position = "";
 		style.display = "";
 		style.paddingTop= "";
