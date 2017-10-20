@@ -35,14 +35,14 @@
 	</nav>
 </div>
 <br>
-<h1 class="page_title">Rip My Professor</h1>
+<h1 class="page_title">?</h1>
 <div class="body_div">
 	
 	<div class="add_course_div">
 		<p><b>Create new course</b></p>
 		<form action="/index/" method='post'>
 		{% csrf_token %}
-		<label>course name</label>
+		<label class="required">course name</label>
 		<input type="text" name="course_name" placeholder="Enter new course" class="input_course_name" required>
 		<p></p>
 		<label>course fullname</label>
@@ -52,7 +52,7 @@
 		<div>
 			<label>course description</label>
 			<div id="course_desc_input_box_div">
-				<textarea type="text" name="course_description" placeholder="Enter course description" class="course_desc" rows="10" cols="50" maxlength="250" onkeyup="checkWord(this);" onPaste="prevent_paste(this);"></textarea>
+				<textarea type="text" name="course_description" placeholder="Enter course description" class="course_desc" maxlength="250" onkeyup="checkWord(this);" onPaste="prevent_paste(this);"></textarea>
 				<span id="wordCheck" class="wordCheck">250</span><span class="wordCheck">/250</span>
 			</div>
 		</div>
@@ -71,19 +71,23 @@
 		<p><b>Delete course</b></p>
 		<form action="/index/" method='post'>
 		{% csrf_token %}
-		<label>course name</label>
+		<label class="required">course name</label>
 		<input type="text" name="course_name" placeholder="Enter a course name to delete" required>
 		<p></p>
 		<button type="submit" name="action" value="delete">Delete</button>
 		</form>
 	</div>
 
-	<div class="site-info">
-
-		<div class="qr" onclick="showQR()"><img src="{% static 'media/qr-mini.png' %}">
-  		<span class="qrpopup" id="qr-popup"><img src="{% static 'media/qr-big.png' %}" class="bigqr"></span>
+	<footer>
+	<div class="footer_div">
+		<div class="about_div">
+			<p>Copyright © 2017 Simon Shen; all rights reserved.</p>
 		</div>
-	</div>
+		<div class="footer_icon_div">
+			<div class="qr_div" onclick="show('qr-popup');"><img src="{% static 'media/qr-mini.png' %}"><span class="qrpopup" id="qr-popup"><img src="{% static 'media/qr-big.png' %}" class="bigqr"></span></div>
+			<div class="wechat_div" onclick="show('wechat-popup')"><img src="{% static 'media/wechat-mini.png' %}"><span class="wechatpopup" id="wechat-popup"><img src="{% static 'media/wechat-big.png' %}" class="bigqr"></span></div>
+		</div>
+	</footer>
 
 </div>
 </body>

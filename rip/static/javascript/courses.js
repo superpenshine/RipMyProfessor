@@ -1,6 +1,7 @@
 max_length = 250;
 
 function checkWord(o){
+
 	realLength= o.value.length;
 	//realLength= getStrleng(o.value);
 	var wck = document.getElementById("wordCheck");
@@ -23,15 +24,21 @@ function checkWord(o){
 // }
 //prevent paste from excessing word limits
 function prevent_paste(o){
+
 	text_length = o.value.length;
 	if(text_length > max_length){
 		num = o.value.substring(0, max_length);
 	}
+	
 }
 
-function showQR(){
-	console.log("clicked");
-	var o = document.getElementById("qr-popup");
-	o.classList.toggle("show");
+function show(o){
+
+	console.log(document.getElementById(o).id);
+
+	var popup = document.getElementById(document.getElementById(o).id);
+	if(o != null){
+		popup.classList.toggle("show");
+	}
 
 }
