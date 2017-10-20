@@ -1,5 +1,5 @@
 @media screen and (max-width: 442px){
-	nav.navbar{
+	.navbar{
 		background-color: #131a26;
 		height: 145px !important;
 	}
@@ -21,7 +21,11 @@
 		height: 100px;
 	}
 }
-
+@media screen and (min-width: 838px){
+	.navbar{
+		position: fixed;
+	}
+}
 @media screen and (max-width: 838px){
 	input.navbar-search-input{
 		width: 50vw !important;
@@ -32,6 +36,7 @@
 	}
 	.navbar-searcher{
 		padding-top: 5px;
+		background-color: #131a26;
 	}
 	button.navbar-search-button{
 		background-color: #fff98b !important;
@@ -53,22 +58,29 @@
 	}
 }
 
-input.navbar-search-input{
+.navbar{
+	width: 100%;
+	height: 55px;
+	font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
+	font-size: 19px;
+	background-color: #edeeff;
+}
+.navbar-search-input{
 	border-radius: 7px;
 	border: 1px solid #ccc;
 	height: 30px;
 	width: 40vw;
+	z-index: 999;
 	display: inline-block;
 }
-
-button.navbar-search-button{
+.navbar-search-button{
 	display: inline-block;
 	height: 34px;
 	border:2px;
 	border-radius: 7px;
+	cursor: pointer;
 	background-color: #9be9d8;
 }
-
 .navbar-ul{
 	margin: 0px;
 	padding:0px;
@@ -76,12 +88,6 @@ button.navbar-search-button{
 .navbar-li{
 	display: inline-block;
 	margin-right: 10px;
-}
-.navbar{
-	font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
-	font-size: 19px;
-	background-color: #edeeff;
-	height: 60px;
 }
 .navbar-brand{
 	
@@ -99,29 +105,17 @@ button.navbar-search-button{
 	margin-top: 11px;
 	display: inline-block;
 }
-
-.courselist_fullname{
-	font-size:12px;
-	font-style: italic;
-}
-
 .navbar a{
   	color: #6993cb;
 }
 
-select:hover{
-	transition-duration:0.218s;
-	box-shadow: 0px 3px 8px #888888;
+.main_leaderboard{
+	height: 60px;
 }
 
-input:hover{
-	transition-duration:0.218s;
-	box-shadow: 0px 3px 8px #888888;
-}
-
-textarea:hover{
-	transition-duration:0.218s;
-	box-shadow: 0px 3px 8px #888888;
+.courselist_fullname{
+	font-size:12px;
+	font-style: italic;
 }
 
 input.input_course_name{
@@ -147,6 +141,21 @@ textarea.course_desc{
 
 span.wordCheck{
 	font-size:10px;
+}
+
+select:hover{
+	transition-duration:0.218s;
+	box-shadow: 0px 3px 8px #888888;
+}
+
+input:hover{
+	transition-duration:0.218s;
+	box-shadow: 0px 3px 8px #888888;
+}
+
+textarea:hover{
+	transition-duration:0.218s;
+	box-shadow: 0px 3px 8px #888888;
 }
 
 .required::after{
@@ -253,4 +262,12 @@ footer {
 @keyframes fadeIn {
     from {opacity: 0;}
     to {opacity:1 ;}
+}
+
+.top_div{
+	z-index: 0;
+}
+.body_div{
+	position: relative;
+	z-index: -1;
 }

@@ -1,0 +1,5 @@
+add scroll spy on the navbar
+
+Logo design
+
+exploring middelwares
