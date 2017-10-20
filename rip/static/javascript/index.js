@@ -64,7 +64,7 @@ setInterval(function fixedNavbar(){
 		style.marginTop= "";
 		style.width= "";
 		style.height= "";
-	}}, 100);
+	}}, 1);
 
 function checkWord(o){
 
