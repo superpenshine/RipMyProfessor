@@ -6,7 +6,7 @@ x = 0;
 updateView();
 
 if (document.addEventListener){
-	window.addEventListener("scroll", function doScroll(){didScroll=true;});
+	window.addEventListener("scroll", fixedNavbar);
 	window.addEventListener("resize", updateView, false);
 	//window.addEventListener("fullscreenchange", updateView, false);
 }
@@ -26,8 +26,7 @@ function updateView(){
 
 }
 
-setInterval(function fixedNavbar(){
-	if (didScroll){
+function fixedNavbar(){
 		didScroll = false;
 		x = window.pageYOffset;
 		console.log(x);
@@ -64,7 +63,7 @@ setInterval(function fixedNavbar(){
 		style.marginTop= "";
 		style.width= "";
 		style.height= "";
-	}}, 1);
+	}
 
 function checkWord(o){
 
