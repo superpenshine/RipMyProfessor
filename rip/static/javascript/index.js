@@ -6,7 +6,7 @@ x = 0;
 updateView();
 
 if (document.addEventListener){
-	window.addEventListener("scroll", fixedNavbar);
+	//window.addEventListener("scroll", fixedNavbar);
 	window.addEventListener("resize", updateView, false);
 	//window.addEventListener("fullscreenchange", updateView, false);
 }
@@ -32,27 +32,11 @@ function fixedNavbar(){
 		console.log(x);
 		style = document.getElementById("navbarSearcher").style;
 		//small devices like cellphone
-		if (device_type == 2 && window.pageYOffset > 82){
-			console.log("device type 2");
-			style.position = "fixed";
-			style.display = "block";
-			style.top= "0px";
-			style.paddingTop= "11px";
-			style.marginTop= "0px";
-			style.width= "100%";
-			style.height= "50px";
+		if (device_type == 2 && window.pageYOffset > 44){
 			return;
 		}
 		//medium devices like ipad
-		if (device_type == 1 && window.pageYOffset > 40){
-			console.log("device type 1");
-			style.position = "fixed";
-			style.display = "block";
-			style.top= "0px";
-			style.paddingTop= "11px";
-			style.marginTop= "0px";
-			style.width= "100%";
-			style.height= "47px";
+		if (device_type == 1 && window.pageYOffset > 6){
 			return;
 		}
 		//large devices like pc
