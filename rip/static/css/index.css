@@ -38,7 +38,6 @@
 	nav.navbar{
 		background: #333D4F;
 		background: rgba(0, 13, 35, 0.8);
-		height: 50px;
 	}
 	img.bigqr{
 		width:200px;
@@ -108,8 +107,8 @@
 }
 
 .main_leaderboard{
-	height: 10vh;
-	min-height: 70px;
+	height: 14vh;
+	min-height: 80px;
 }
 
 #index_body_div{
