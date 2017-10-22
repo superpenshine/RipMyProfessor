@@ -35,7 +35,8 @@
 	</nav>
 </div>
 <div id="index_body_div">
-	<div class="main_leaderboard">Hello !</div>
+	<div class="main_leaderboard"></div>
+	<div class="main_body">Hello !</div>
 	<div class="add_course_div">
 		<p><b>Create new course</b></p>
 		<form action="/index/" method='post'>
@@ -70,23 +71,23 @@
 		<form action="/index/" method='post'>
 		{% csrf_token %}
 		<label class="required">course name</label>
-		<input type="text" name="course_name" placeholder="Enter a course name to delete" required>
+		<input class="input_course_name" type="text" name="course_name" placeholder="Enter a course name to delete" required>
 		<p></p>
 		<button type="submit" name="action" value="delete">Delete</button>
 		</form>
 	</div>
 </div>
 <div>
-<footer>
-<div class="footer_div">
-	<div class="about_div">
-		<p>Copyright © 2017 Simon Shen; all rights reserved.</p>
-	</div>
-	<div class="footer_icon_div">
-		<div class="qr_div icon_common_style" onclick="show('qr-popup');"><img src="{% static 'media/qr-mini.png' %}"><span class="qrpopup popup_content_common_style" id="qr-popup"><img src="{% static 'media/qr-big.png' %}" class="bigqr"></span></div>
-		<div class="wechat_div icon_common_style" onclick="show('wechat-popup')"><img src="{% static 'media/wechat-mini.png' %}"><span class="wechatpopup popup_content_common_style" id="wechat-popup"><img src="{% static 'media/wechat-big.png' %}" class="bigqr"></span></div>
-	</div>
-</footer>
+	<footer>
+	<div class="footer_div">
+		<div class="about_div">
+			<p>Copyright © 2017 Simon Shen; All rights reserved.</p>
+		</div>
+		<div class="footer_icon_div">
+			<div class="qr_div icon_common_style" onclick="show('qr-popup');"><img src="{% static 'media/qr-mini.png' %}"><span class="qrpopup popup_content_common_style" id="qr-popup"><img src="{% static 'media/qr-big.png' %}" class="bigqr"></span></div>
+			<div class="wechat_div icon_common_style" onclick="show('wechat-popup')"><img src="{% static 'media/wechat-mini.png' %}"><span class="wechatpopup popup_content_common_style" id="wechat-popup"><img src="{% static 'media/wechat-big.png' %}" class="bigqr"></span></div>
+		</div>
+	</footer>
 </div>
 </body>
 

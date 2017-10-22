@@ -1,4 +1,4 @@
-add scroll spy on the navbar
+no scale in detail view
 
 Logo design
 
