@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-import debug_toolbar
+#import debug_toolbar
 
 urlpatterns = [
     url(r'^index/|^courses/', include('rip.urls')),
