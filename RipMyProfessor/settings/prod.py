@@ -33,6 +33,7 @@ ALLOWED_HOSTS = ['127.0.0.1', '*']
 
 INSTALLED_APPS = [
 	'rip.apps.RipConfig',
+	'debug_toolbar',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+	'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',#whitenoise for heroku
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -151,4 +153,4 @@ STATIC_URL = '/static/'#use it in your .html .css etc.
 '''
 for debug toolbar
 '''
-INTERNAL_IPS = ('127.0.0.1')
+INTERNAL_IPS = ('127.0.0.1', '*')
