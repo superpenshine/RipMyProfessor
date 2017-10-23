@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
 	'debug_toolbar.middleware.DebugToolbarMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',#whitenoise for heroku
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -142,10 +143,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))#for static root heroku
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles') #added for heroku
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles') #where collectstatic put into, added for heroku
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'#for static file compressions and caching support
+
 STATICFILES_DIRS = (os.path.join(os.path.join(BASE_DIR, 'rip'), 'static'), #added for heroku
     )
-STATIC_URL = '/static/'
+STATIC_URL = '/static/'#use it in your .html .css etc.
 
 '''
 for debug toolbar

@@ -3,3 +3,6 @@ django-debug-toolbar==1.8
 django-redis==4.8.0
 redis==2.10.6
 sqlparse==0.2.3
+gunicorn==19.7.1
+whitenoise==3.2
+brotlipy==0.7.0
