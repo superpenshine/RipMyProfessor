@@ -1,2 +1,6 @@
 django_debug_toolbar==1.8
 Django==1.11.4
+redis==2.10.6
+gunicorn==19.7.1
+whitenoise==3.2
+brotlipy==0.7.0
