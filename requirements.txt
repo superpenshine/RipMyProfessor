@@ -4,3 +4,4 @@ redis==2.10.6
 gunicorn==19.7.1
 whitenoise==3.2
 brotlipy==0.7.0
+django-redis==4.8.0
