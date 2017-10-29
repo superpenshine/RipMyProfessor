@@ -2,6 +2,7 @@ max_length = 250;
 didScroll = false;
 device_type = 0;
 x = 0;
+do_extend = false;
 
 updateView();
 
@@ -11,22 +12,40 @@ if (document.addEventListener){
 	//window.addEventListener("fullscreenchange", updateView, false);
 }
 
+function extend() {
+
+	var header = document.getElementById("navbarheader");
+	var extend = document.getElementById("navbarextendinput");
+	extend.classList.toggle("extend");
+
+	console.log(do_extend);
+	do_extend = !do_extend;
+	do_extend ? header.style.display = "none" : header.style.display = "";
+
+}
+
 function updateView(){
+
 	console.log("Screen changed");
+
 	if (window.matchMedia('all and (max-width: 442px)').matches){
-	console.log("small");
-	device_type = 2;
+		console.log("small");
+		device_type = 2;
+
 	} else if (window.matchMedia('all and (max-width: 838px)').matches){
-	console.log("middle");
-	device_type = 1;
+		console.log("middle");
+		device_type = 1;
+
 	} else {
-	console.log("large");
-	device_type = 0;
+		console.log("large");
+		device_type = 0;
+
 	}
 
 }
 
 function fixedNavbar(){
+
 		didScroll = false;
 		x = window.pageYOffset;
 		console.log(x);
@@ -43,10 +62,11 @@ function fixedNavbar(){
 		console.log("scroll condition unsatisfied");
 		style.position = "";
 		style.display = "";
-		style.paddingTop= "";
-		style.marginTop= "";
-		style.width= "";
-		style.height= "";
+		style.paddingTop = "";
+		style.marginTop = "";
+		style.width = "";
+		style.height = "";
+
 	}
 
 function checkWord(o){
@@ -75,6 +95,7 @@ function checkWord(o){
 function prevent_paste(o){
 
 	text_length = o.value.length;
+
 	if(text_length > max_length){
 		num = o.value.substring(0, max_length);
 	}
@@ -83,9 +104,7 @@ function prevent_paste(o){
 
 function show(o){
 
-	console.log(document.getElementById(o).id);
-
-	var popup = document.getElementById(document.getElementById(o).id);
+	var popup = document.getElementById(o);
 	if(o != null){
 		popup.classList.toggle("show");
 	}

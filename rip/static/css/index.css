@@ -3,7 +3,7 @@
 	.navbar-searcher{
 		display: none !important;
 	}
-	#navbar_magnifier{
+	#navbar_extend_div{
 		display: initial !important;
 	}
 	#course_desc_input_box_div{
@@ -65,29 +65,6 @@
 	background-color: rgba(197, 45, 45, 0.8);
 	z-index: 1;
 }
-.navbar-search-input{
-	border-radius: 7px;
-	border: 1px solid #ccc;
-	height: 30px;
-	width: 40vw;
-	display: inline-block;
-}
-.navbar-search-button{
-	display: inline-block;
-	height: 34px;
-	border:2px;
-	border-radius: 7px;
-	cursor: pointer;
-	background-color: #ecdb28;
-}
-.navbar-ul{
-	margin: 0px;
-	padding:0px;
-}
-.navbar-li{
-	display: inline-block;
-	margin-right: 10px;
-}
 .navbar-header{
 	display: inline-block;
 	height:60px;
@@ -105,12 +82,56 @@
 	bottom: 25px;
 	display: inline-block;
 }
-#navbar_magnifier{
+.navbar-search-input{
+	border-radius: 7px;
+	border: 1px solid #ccc;
+	height: 30px;
+	width: 40vw;
+	display: inline-block;
+}
+.navbar-search-button{
+	display: inline-block;
+	height: 34px;
+	border:2px;
+	border-radius: 7px;
+	cursor: pointer;
+	background-color: #ecdb28;
+}
+#navbar_extend_div{
 	display: none;
 	float: right;
+	margin-right: 3vw;
+}
+#navbar_extend_div .extend{
+	display: initial !important;
+	-webkit-animation: extend 0.5s;
+	animation: extend 0.5s;
+}
+#navbar_extend_div .squeeze{
+	display: none !important;
+	-webkit-animation: squeeze 0.5s;
+	animation: squeeze 0.5s;
+}
+.navbar-extend-input{
+	display: none;
+	width: 80vw;
+	height: 30px;
+	background: #030E1E;
+	border: none;
+	border-radius: 5px;
+}
+.navbar_magnifier{
+    cursor: pointer;
 	position: relative;
-	top: 13px;
-	right: 10vw;
+	top: 10px;
+}
+.navbar-ul{
+	margin: 0px;
+	padding:0px;
+}
+.navbar-li{
+	display: inline-block;
+	margin-right: 10px;
 }
 
 .main_leaderboard{
@@ -258,4 +279,24 @@ body {
 @keyframes fadeIn {
     from {opacity: 0;}
     to {opacity:1 ;}
+}
+
+@-webkit-keyframes extend {
+    from {width: 0vw;} 
+    to {width: 80vw;}
+}
+
+@keyframes extend {
+    from {width: 0vw;} 
+    to {width: 80vw;}
+}
+
+@-webkit-keyframes squeeze {
+    from {width: 80vw;} 
+    to {width: 0vw;}
+}
+
+@keyframes squeeze {
+    from {width: 80vw;} 
+    to {width: 0vw;}
 }
