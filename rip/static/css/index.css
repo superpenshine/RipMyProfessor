@@ -112,6 +112,11 @@
 	float: right;
 	margin-right: 3vw;
 }
+#navbar_extend_div .extend{
+	display: initial !important;
+	-webkit-animation: extend 0.5s;
+	animation: extend 0.5s;
+}
 .navbar-extend-input{
 	color: #bbc0c4;
 	font-size: 16px;
@@ -124,22 +129,18 @@
 	margin-right: 7px;
 	text-align: center;
 	position: relative;
-	top: 5px;
+	top: 10px;
 }
-#navbar_extend_div .extend{
-	display: initial !important;
-	-webkit-animation: extend 0.5s;
-	animation: extend 0.5s;
-}
-#navbar_extend_div .squeeze{
-	display: none !important;
-	-webkit-animation: squeeze 0.5s;
-	animation: squeeze 0.5s;
-}
-.navbar_magnifier{
+#navbar_magnifier{
     cursor: pointer;
 	position: relative;
-	top: 15px;
+	top: 13px;
+}
+#navbar_right_arrow{
+	display: none;
+	position: relative;
+	top: 16px;
+	right: 5px;
 }
 
 .main_leaderboard{
@@ -301,14 +302,4 @@ body {
 @keyframes extend {
     from {width: 0vw;} 
     to {width: 80vw;}
-}
-
-@-webkit-keyframes squeeze {
-    from {width: 80vw;} 
-    to {width: 0vw;}
-}
-
-@keyframes squeeze {
-    from {width: 80vw;} 
-    to {width: 0vw;}
 }

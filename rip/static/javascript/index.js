@@ -16,12 +16,54 @@ function extend() {
 
 	var header = document.getElementById("navbarheader");
 	var extend = document.getElementById("navbarextendinput");
+	var arrow = document.getElementById("navbar_right_arrow");
+	var mag = document.getElementById("navbar_magnifier");
+	
+	//toggle anyway, negate state
 	extend.classList.toggle("extend");
-
-	console.log(do_extend);
 	do_extend = !do_extend;
-	do_extend ? header.style.display = "none" : header.style.display = "";
 
+	if (do_extend){
+
+		mag.style.display = "none";
+		arrow.style.display = "initial";
+		unfade(arrow);
+		header.style.display = "none";
+	} else {
+
+		mag.style.display = "";
+		unfade(mag);
+		arrow.style.display = "";
+		header.style.display = "";
+		unfade(header);
+	}
+
+}
+
+function fade(element) {
+    var op = 1;  // initial opacity
+    var timer = setInterval(function () {
+        if (op <= 0.1){
+            clearInterval(timer);
+            element.style.display = 'none';
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op -= op * 0.1;
+    }, 50);
+}
+
+function unfade(element) {
+    var op = 0.1;  // initial opacity
+    element.style.opacity = 0;
+    var timer = setInterval(function () {
+        if (op >= 1){
+            clearInterval(timer);
+        }
+        element.style.opacity = op;
+        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+        op += op * 0.1;
+    }, 10);
 }
 
 function updateView(){
