@@ -10,7 +10,7 @@ import re
 #TTL = 15
 #@cache_page(TTL)
 def index(request):
-
+	
 	if request.method == 'POST':
 
 		#add entry to course table

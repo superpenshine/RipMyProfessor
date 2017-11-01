@@ -39,14 +39,14 @@
 		</div>
 		<div class="navbar-searcher" id="navbarSearcher">
 			<form action="/index/" method="get">
-			<input type="text" name="subject" placeholder="Search CSC" class="navbar-search-input">
+			<input type="text" name="subject" placeholder="Search CSC..." class="navbar-search-input hoverinput">
 			<span><button type="submit" name="action" value="search_by_subject" class="navbar-search-button">Search</button></span>
 			</form>
 		</div>
 		<div id="navbar_extend_div">
 			<div>
 				<form action="/index/" method="get">
-					<input type="text" name="subject" placeholder="Search CSC" class="navbar-extend-input" id="navbarextendinput">
+					<input type="text" name="subject" placeholder="Search CSC..." class="navbar-extend-input" id="navbarextendinput">
 					<img class="navbar_magnifier" src="{% static 'media/magnifier.png' %}" onclick="extend();">
 				</form>
 			</div>

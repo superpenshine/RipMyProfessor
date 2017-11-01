@@ -22,7 +22,15 @@
 		height: 100px;
 	}
 }
+
 @media screen and (max-width: 950px){
+	nav.navbar{
+		background: #333D4F;
+		background: rgba(0, 13, 35, 0.8);
+	}
+	nav.navbar a{
+		color:#b0b389;
+	}
 	.navbar-header{
 		margin-left:10px;
 	}
@@ -32,26 +40,14 @@
 	button.navbar-search-button{
 		background-color: #fff98b !important;
 	}
-	nav.navbar{
-		background: #333D4F;
-		background: rgba(0, 13, 35, 0.8);
-	}
 	img.bigqr{
 		width:200px;
 		height:200px;
-	}
-	nav.navbar a{
-		color:#b0b389;
 	}
 	.footer_div{
 		background-color: #242729 !important;
 		color: #bbc0c4;
 	}
-}
-
-#brand_img{
-	width: 100%;
-	height: 100%;
 }
 
 .navbar{
@@ -65,12 +61,24 @@
 	background-color: rgba(197, 45, 45, 0.8);
 	z-index: 1;
 }
+.navbar-ul{
+	margin: 0px;
+	padding:0px;
+}
+.navbar-li{
+	display: inline-block;
+	margin-right: 10px;
+}
 .navbar-header{
 	display: inline-block;
 	height:60px;
 	width: 220px;
 	margin-right: 10px;
 	margin-left: 20px;
+}
+#brand_img{
+	width: 100%;
+	height: 100%;
 }
 .navbar-body{
 	display: inline-block;
@@ -88,6 +96,8 @@
 	height: 30px;
 	width: 40vw;
 	display: inline-block;
+	text-align: center;
+	font-size: 16px;
 }
 .navbar-search-button{
 	display: inline-block;
@@ -102,16 +112,6 @@
 	float: right;
 	margin-right: 3vw;
 }
-#navbar_extend_div .extend{
-	display: initial !important;
-	-webkit-animation: extend 0.5s;
-	animation: extend 0.5s;
-}
-#navbar_extend_div .squeeze{
-	display: none !important;
-	-webkit-animation: squeeze 0.5s;
-	animation: squeeze 0.5s;
-}
 .navbar-extend-input{
 	color: #bbc0c4;
 	font-size: 16px;
@@ -123,19 +123,23 @@
 	border-radius: 5px;
 	margin-right: 7px;
 	text-align: center;
+	position: relative;
+	top: 5px;
+}
+#navbar_extend_div .extend{
+	display: initial !important;
+	-webkit-animation: extend 0.5s;
+	animation: extend 0.5s;
+}
+#navbar_extend_div .squeeze{
+	display: none !important;
+	-webkit-animation: squeeze 0.5s;
+	animation: squeeze 0.5s;
 }
 .navbar_magnifier{
     cursor: pointer;
 	position: relative;
-	top: 10px;
-}
-.navbar-ul{
-	margin: 0px;
-	padding:0px;
-}
-.navbar-li{
-	display: inline-block;
-	margin-right: 10px;
+	top: 15px;
 }
 
 .main_leaderboard{
@@ -185,7 +189,7 @@ select:hover{
 	box-shadow: 0px 3px 8px #888888;
 }
 
-input:hover{
+input.hoverinput:hover{
 	transition-duration:0.218s;
 	box-shadow: 0px 3px 8px #888888;
 }
@@ -199,6 +203,10 @@ textarea:hover{
 	content: "*";
 	color: #B71B23;
 	display: inline-block;
+}
+
+hr{
+	width: 90vw;
 }
 
 li{
