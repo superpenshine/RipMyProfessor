@@ -28,7 +28,6 @@
 <body>
 <div top_div>
 	<nav class="navbar">
-		<form action="/index/" method="get">
 		<div class="navbar-header" id="navbarheader"><a class="navbar-brand" href="/index/"><img id="brand_img" src="{% static 'media/brand1.png' %}"></a></div>
 		<div class="navbar-body">
 			<ul class="navbar-ul">
@@ -39,17 +38,21 @@
 			</ul>
 		</div>
 		<div class="navbar-searcher" id="navbarSearcher">
+		<form action="/index/" method="get">
 			<input type="text" name="subject" placeholder="Search CSC..." class="navbar-search-input hoverinput">
 			<span><button type="submit" name="action" value="search_by_subject" class="navbar-search-button">Search</button></span>
+		</form>
 		</div>
 		<div id="navbar_extend_div">
 			<div>
+				<form action="/index/" method="get">
 					<input type="text" name="subject" placeholder="Search CSC..." class="navbar-extend-input" id="navbarextendinput">
 					<img id="navbar_magnifier" src="{% static 'media/magnifier.png' %}" onclick="extend();">
 					<img id="navbar_right_arrow" src="{% static 'media/cross.png' %}" onclick="extend();">
+					<button type="submit" name="action" value="search_by_subject" style="visibility: hidden; margin-right: 10px"></button>
+				</form>
 			</div>
 		</div>
-		</form>
 	</nav>
 </div>
 <div id="index_body_div">

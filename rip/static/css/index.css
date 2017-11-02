@@ -133,14 +133,13 @@
 }
 #navbar_magnifier{
     cursor: pointer;
-	position: relative;
+	position: absolute;
 	top: 13px;
 }
 #navbar_right_arrow{
 	display: none;
-	position: relative;
+	position: absolute;
 	top: 16px;
-	right: 5px;
 }
 
 .main_leaderboard{
