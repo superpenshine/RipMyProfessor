@@ -70,7 +70,7 @@
 	margin-right: 10px;
 }
 .navbar-header{
-	display: inline-block;
+	float: left;
 	height:60px;
 	width: 220px;
 	margin-right: 10px;
@@ -83,11 +83,11 @@
 .navbar-body{
 	display: inline-block;
 	position: relative;
-	bottom: 20px;
+	top: 12px;
 }
 .navbar-searcher{
 	position: relative;
-	bottom: 25px;
+	top: 12px;
 	display: inline-block;
 }
 .navbar-search-input{
@@ -126,20 +126,22 @@
 	background: #030E1E;
 	border: none;
 	border-radius: 5px;
-	margin-right: 7px;
+	margin-right: 13px;
 	text-align: center;
 	position: relative;
-	top: 10px;
+	top: 15px;
 }
 #navbar_magnifier{
     cursor: pointer;
 	position: absolute;
-	top: 13px;
+	top: 16px;
+	right: 13px;
 }
 #navbar_right_arrow{
 	display: none;
 	position: absolute;
-	top: 16px;
+	top: 20px;
+	right: 16px;
 }
 
 .main_leaderboard{

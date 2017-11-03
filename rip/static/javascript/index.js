@@ -13,7 +13,7 @@ if (document.addEventListener){
 }
 
 function extend() {
-
+	
 	var header = document.getElementById("navbarheader");
 	var extend = document.getElementById("navbarextendinput");
 	var arrow = document.getElementById("navbar_right_arrow");
@@ -29,15 +29,30 @@ function extend() {
 		arrow.style.display = "initial";
 		unfade(arrow);
 		header.style.display = "none";
+
 	} else {
 
 		mag.style.display = "";
 		unfade(mag);
 		arrow.style.display = "";
 		header.style.display = "";
-		unfade(header);
+		flyin(header);
 	}
 
+}
+
+function flyin(o) {
+
+	animation = o.animate([
+		{ transform: 'translateX(12px)', opacity: 0 },
+		{ transform: 'translateX(0px)', opacity: 1 }
+		], {duration: 1100, //milliseconds
+    	easing: 'ease-in-out', //'linear', a bezier curve, etc.
+    	delay: 0, //milliseconds
+    	iterations: 1, //or a number
+    	direction: 'alternate', //'normal', 'reverse', etc.
+    	fill: 'forwards' //'backwards', 'both', 'none', 'auto'
+		});
 }
 
 function fade(element) {
