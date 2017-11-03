@@ -13,7 +13,7 @@ if (document.addEventListener){
 }
 
 function extend() {
-	
+
 	var header = document.getElementById("navbarheader");
 	var extend = document.getElementById("navbarextendinput");
 	var arrow = document.getElementById("navbar_right_arrow");
@@ -22,6 +22,8 @@ function extend() {
 	//toggle anyway, negate state
 	extend.classList.toggle("extend");
 	do_extend = !do_extend;
+
+	do_extend ? header.classList.remove('activated') : header.classList.add('activated');
 
 	if (do_extend){
 
@@ -36,9 +38,8 @@ function extend() {
 		unfade(mag);
 		arrow.style.display = "";
 		header.style.display = "";
-		flyin(header);
+		//flyin(header);
 	}
-
 }
 
 function flyin(o) {
