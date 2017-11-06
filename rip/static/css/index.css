@@ -81,12 +81,10 @@
 }
 @keyframes flyin{
 	0% { transform: translateX(12px); opacity: 0; }
-	50% { transform: translateX(6px); opacity: 0.5; }
 	100% { transform: translateX(0px); opacity: 1; }
 }
 @-webkit-keyframes flyin{
 	0% { transform: translateX(12px); opacity: 0; }
-	50% { transform: translateX(6px); opacity: 0.5; }
 	100% { transform: translateX(0px); opacity: 1; }
 }
 #brand_img{
@@ -165,8 +163,6 @@
 #index_body_div{
 	position: relative;
 	padding-left: 20px;
-	z-index: 0;
-	background-image: url("/static/media/skyline.jpg");
 }
 
 .courselist_fullname{
@@ -234,8 +230,14 @@ a {
 }
 
 body {
-	color: ##404040;
+	color: #404040;
 	margin: 0px;
+}
+
+#body_background {
+	height: 100%;
+	z-index: 0;
+	background-image: url("/static/media/skyline.jpg");
 }
 
 .delete_course_div{

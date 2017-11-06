@@ -1,7 +1,7 @@
 max_length = 250;
 didScroll = false;
 device_type = 0;
-x = 0;
+x_scroll = 0;
 do_extend = false;
 
 updateView();
@@ -9,7 +9,19 @@ updateView();
 if (document.addEventListener){
 	//window.addEventListener("scroll", fixedNavbar);
 	window.addEventListener("resize", updateView, false);
+	//document.addEventListener("mousemove", function(event){rotate(event)});
 	//window.addEventListener("fullscreenchange", updateView, false);
+}
+
+function rotate (event) 
+{
+    var x = event.clientX;
+    var w = window.innerWidth;
+    var midpoint = w / 2;
+    var pos = x - midpoint;
+	var val = (pos / midpoint) * 0.8;
+	var logo = document.getElementById("body_background");
+	logo.style.transform = "perspective(550px) rotateY(" + val + "deg)";
 }
 
 function extend() {
@@ -23,6 +35,7 @@ function extend() {
 	extend.classList.toggle("extend");
 	do_extend = !do_extend;
 
+	//for browser that does not support animation
 	do_extend ? header.classList.remove('activated') : header.classList.add('activated');
 
 	if (do_extend){
@@ -38,8 +51,10 @@ function extend() {
 		unfade(mag);
 		arrow.style.display = "";
 		header.style.display = "";
-		//flyin(header);
+		flyin(header);
+
 	}
+
 }
 
 function flyin(o) {
@@ -54,20 +69,21 @@ function flyin(o) {
     	direction: 'alternate', //'normal', 'reverse', etc.
     	fill: 'forwards' //'backwards', 'both', 'none', 'auto'
 		});
+
 }
 
-function fade(element) {
-    var op = 1;  // initial opacity
-    var timer = setInterval(function () {
-        if (op <= 0.1){
-            clearInterval(timer);
-            element.style.display = 'none';
-        }
-        element.style.opacity = op;
-        element.style.filter = 'alpha(opacity=' + op * 100 + ")";
-        op -= op * 0.1;
-    }, 50);
-}
+// function fade(element) {
+//     var op = 1;  // initial opacity
+//     var timer = setInterval(function () {
+//         if (op <= 0.1){
+//             clearInterval(timer);
+//             element.style.display = 'none';
+//         }
+//         element.style.opacity = op;
+//         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
+//         op -= op * 0.1;
+//     }, 50);
+// }
 
 function unfade(element) {
     var op = 0.1;  // initial opacity
@@ -105,8 +121,8 @@ function updateView(){
 function fixedNavbar(){
 
 		didScroll = false;
-		x = window.pageYOffset;
-		console.log(x);
+		x_scroll = window.pageYOffset;
+		console.log(x_scroll);
 		style = document.getElementById("navbarSearcher").style;
 		//small devices like cellphone
 		if (device_type == 2 && window.pageYOffset > 44){
