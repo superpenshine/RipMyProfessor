@@ -19,6 +19,7 @@ import debug_toolbar
 
 urlpatterns = [
     url(r'^index/|^courses/', include('rip.urls')),
+    url(r'^hint', include('gethint.urls')),
     url(r'^admin/', admin.site.urls),
     url(r'^__debug__/', include(debug_toolbar.urls)),
 ]

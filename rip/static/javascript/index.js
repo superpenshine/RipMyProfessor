@@ -13,6 +13,25 @@ if (document.addEventListener){
 	//window.addEventListener("fullscreenchange", updateView, false);
 }
 
+function showHint(typed_letters) {
+	var xhttp;
+	if (typed_letters.length == 0){
+		//no suggestions
+		console.log("no word")
+		return;
+	}
+
+	xhttp = new XMLHttpRequest();
+	xhttp.onreadystatechange = function(){
+		if (this.readyState == 4 && this.status ==200){
+			console.log(this.responseText);
+		}
+	};
+	xhttp.open("GET", "/hint"+typed_letters, true);
+	xhttp.send();
+}
+
+//for gackground rotation
 function rotate (event) 
 {
     var x = event.clientX;

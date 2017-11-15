@@ -43,7 +43,7 @@ def get_courses_by_subject(subject):
 	if subject in cache:
 		return cache.get(subject)
 	else:
-		regex = re.compile(r'^%s[0-9]{3}$' % subject, re.I)
+		#regex = re.compile(r'^%s[0-9]{3}$' % subject, re.I)
 		courses_in_subject = courses.objects.filter(name__iregex = r'^%s[0-9]{3}$' % subject).order_by('name')
 		cache.set(subject, courses_in_subject, 0)
 		return courses_in_subject

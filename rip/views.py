@@ -17,7 +17,7 @@ def index(request):
 		if request.POST.get("action") == "add":
 			course_name = request.POST.get("course_name").replace(" ", "")
 			#not a valid course name (add escape later)
-			if not re.match('^[A-Z]{3,4}[0-9]{3}$', course_name):
+			if not re.match('^[A-Z]{3,4}[0-9]{0,3}$', course_name):
 				return render(request, 'rip/courses.html', {'courses_list': get_all_courses(),})
 			#removing spaces
 			course_fullname = request.POST.get("course_fullname", "")
