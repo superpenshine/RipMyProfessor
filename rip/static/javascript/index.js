@@ -3,6 +3,7 @@ didScroll = false;
 device_type = 0;
 x_scroll = 0;
 do_extend = false;
+show_hint = false;
 
 updateView();
 
@@ -14,26 +15,54 @@ if (document.addEventListener){
 }
 
 function showHint(typed_letters) {
-	var xhttp;
-	if (typed_letters.length == 0){
-		//no suggestions
-		console.log("no word")
-		return;
+	//no clue, no hint
+	console.log(typed_letters);
+	var div = document.getElementById('navbar_hint'), ul = document.createElement('ul');
+	console.log(div.childNodes.length);
+	if (div.childNodes.length != 0) {
+		div.removeChild(div.firstChild);
+		console.log("in remove");
 	}
 
-	xhttp = new XMLHttpRequest();
-	xhttp.onreadystatechange = function(){
-		if (this.readyState == 4 && this.status ==200){
-			console.log(this.responseText);
-		}
+	if (typed_letters.length != 0) show_hint = true;
+	else {
+		show_hint = false;
+		return;
 	};
-	xhttp.open("GET", "/hint"+typed_letters, true);
+
+	ask_server("GET", "/hint"+typed_letters, function(hints){
+		for (var x in hints) {
+			var li = document.createElement('li'), content = document.createTextNode(hints[x]);
+			li.appendChild(content);
+			ul.appendChild(li);
+		}
+
+		div.appendChild(ul);
+	});
+}
+
+//send customized query to an URL
+function ask_server(method, body, callback){
+
+	var xhttp;
+	xhttp = new XMLHttpRequest();
+
+	xhttp.onreadystatechange = function(){
+
+		if (this.readyState == 4 && this.status ==200){
+			callback(JSON.parse(this.responseText));
+			return;
+		}
+
+	};
+	xhttp.open(method, body);
 	xhttp.send();
+
 }
 
 //for gackground rotation
-function rotate (event) 
-{
+function rotate (event) {
+
     var x = event.clientX;
     var w = window.innerWidth;
     var midpoint = w / 2;
@@ -41,6 +70,7 @@ function rotate (event)
 	var val = (pos / midpoint) * 0.8;
 	var logo = document.getElementById("body_background");
 	logo.style.transform = "perspective(550px) rotateY(" + val + "deg)";
+
 }
 
 function extend() {

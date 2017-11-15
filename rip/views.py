@@ -17,13 +17,9 @@ def index(request):
 		if request.POST.get("action") == "add":
 			course_name = request.POST.get("course_name").replace(" ", "")
 			#not a valid course name (add escape later)
-			if not re.match('^[A-Z]{3,4}[0-9]{3}$', course_name):
-				return render(request, 'rip/courses.html', {'courses_list': get_all_courses(),})
+			if not re.match('^[A-Z]{3,4}[0-9]{3}$', course_name): return render(request, 'rip/courses.html', {'courses_list': get_all_courses(),})
 			#removing spaces
-			course_fullname = request.POST.get("course_fullname", "")
-			course_description = request.POST.get("course_description", "")
-			course_score_init = request.POST.get("course_score_initial", "5.0")
-			create_or_update(course_name, course_fullname, course_description, course_score_init)
+			create_or_update(course_name, request.POST.get("course_fullname", ""), request.POST.get("course_description", ""), request.POST.get("course_score_initial", "5.0"))
 
 		#delete entry in course table
 		elif request.POST.get("action") == "delete":
@@ -32,16 +28,14 @@ def index(request):
 
 		#print(request.POST.get("action")+"ing "+course_name)
 		update_cache()
-		return redirect('courses')
+		return redirect('/index')
 
 	if request.method == 'GET':
 		#search by subject
 		if request.GET.get("action") == "search_by_subject":
 			subject = request.GET.get("subject")
 			#show all subjects if empty
-			if subject == "": 
-				print ("empty subject")
-				return render(request, 'rip/courses.html', {'courses': get_all_courses(),})
+			if subject == "": return render(request, 'rip/courses.html', {'courses': get_all_courses(),})
 			return render(request, 'rip/courses.html', {'courses': get_courses_by_subject(subject),})
 	#not post nor get
 	return render(request, 'rip/index.html')

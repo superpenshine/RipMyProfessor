@@ -37,14 +37,15 @@
 		</div>
 		<div class="navbar-searcher" id="navbarSearcher">
 		<form action="/index/" method="get">
-			<input type="text" name="subject" placeholder="Search CSC..." class="navbar-search-input hoverinput"  onkeyup="showHint(this.value);">
+			<input type="text" name="subject" placeholder="Search CSC..." class="navbar-search-input hoverinput"  onkeyup="showHint(this.value);" autocomplete="off" autocapitalize="off">
 			<span><button type="submit" name="action" value="search_by_subject" class="navbar-search-button">Search</button></span>
 		</form>
 		</div>
+		<div id="navbar_hint"></div>
 		<div id="navbar_extend_div">
 			<div>
 				<form action="/index/" method="get">
-					<input type="text" name="subject" placeholder="Search CSC..." class="navbar-extend-input" id="navbarextendinput">
+					<input type="text" name="subject" placeholder="Search CSC..." class="navbar-extend-input" id="navbarextendinput" autocomplete="off" autocapitalize="off">
 					<img id="navbar_magnifier" src="{% static 'media/magnifier.png' %}" onclick="extend();">
 					<img id="navbar_right_arrow" src="{% static 'media/cross.png' %}" onclick="extend();">
 					<button type="submit" name="action" value="search_by_subject" style="visibility: hidden"></button>

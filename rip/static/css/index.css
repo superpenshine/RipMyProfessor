@@ -1,7 +1,10 @@
 
-@media screen and (max-width: 534px){
+@media screen and (max-width: 620px){
 	.navbar-searcher{
 		display: none !important;
+	}
+	#navbar_hint{
+		display: none;
 	}
 	#navbar_extend_div{
 		display: initial !important;
@@ -23,7 +26,7 @@
 	}
 }
 
-@media screen and (max-width: 950px){
+@media screen and (max-width: 1280px){
 	nav.navbar{
 		background: #333D4F;
 		background: rgba(0, 13, 35, 0.8);
@@ -57,8 +60,8 @@
 	width: 100%;
 	font-family: "SF Pro Text","Myriad Set Pro","SF Pro Icons","Helvetica Neue","Helvetica","Arial",sans-serif;
 	font-size: 17px;
-	background: #AF4147;
-	background-color: rgba(197, 45, 45, 0.8);
+	background: #333D4F;
+	background: rgba(0, 13, 35, 0.8);
 	z-index: 1;
 }
 .navbar-ul{
@@ -73,8 +76,8 @@
 	float: left;
 	height:60px;
 	width: 220px;
-	margin-right: 10px;
-	margin-left: 20px;
+	margin-right: 1vw;
+	margin-left: 3vw;
 }
 .activated{
 	animation: flyin 1.1s 0s 1 ease-in-out;
@@ -94,21 +97,38 @@
 .navbar-body{
 	display: inline-block;
 	position: relative;
-	top: 12px;
+	top: 18px;
 }
 .navbar-searcher{
-	position: relative;
-	top: 12px;
+	position: absolute;
+	left: 40vw;
+	top: 13px;
 	display: inline-block;
 }
 .navbar-search-input{
-	border-radius: 7px;
-	border: 1px solid #ccc;
+	padding: 0px;
+	border-radius: 4px;
+	border: 0px solid #ccc;
 	height: 30px;
 	width: 40vw;
 	display: inline-block;
 	text-align: center;
 	font-size: 16px;
+}
+#navbar_hint{
+	position: absolute;
+	background-color: white;
+	margin-left: 37vw;
+	left: 3vw;
+	top: 45px;
+	width: 40vw;
+	box-shadow: 0px 3px 8px #888888;
+	border-radius: 4px;
+}
+#navbar_hint ul{
+	padding-left: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 .navbar-search-button{
 	display: inline-block;
