@@ -10,14 +10,14 @@ import re
 #TTL = 15
 #@cache_page(TTL)
 def index(request):
-	
+	print ("in index")
 	if request.method == 'POST':
 
 		#add entry to course table
 		if request.POST.get("action") == "add":
 			course_name = request.POST.get("course_name").replace(" ", "")
 			#not a valid course name (add escape later)
-			if not re.match('^[A-Z]{3,4}[0-9]{0,3}$', course_name):
+			if not re.match('^[A-Z]{3,4}[0-9]{3}$', course_name):
 				return render(request, 'rip/courses.html', {'courses_list': get_all_courses(),})
 			#removing spaces
 			course_fullname = request.POST.get("course_fullname", "")
@@ -34,20 +34,17 @@ def index(request):
 		update_cache()
 		return redirect('courses')
 
-	elif request.method == 'GET':
+	if request.method == 'GET':
 		#search by subject
 		if request.GET.get("action") == "search_by_subject":
 			subject = request.GET.get("subject")
-
-			#show all subjects later
-			if subject == "":
-				return render(request, 'rip/index.html', {'courses_list': get_all_courses(),})
+			#show all subjects if empty
+			if subject == "": 
+				print ("empty subject")
+				return render(request, 'rip/courses.html', {'courses': get_all_courses(),})
 			return render(request, 'rip/courses.html', {'courses': get_courses_by_subject(subject),})
-		else:
-			return render(request, 'rip/index.html', {'courses_list': get_all_courses(),})
 	#not post nor get
-	else:
-		return render(request, 'rip/index.html', {'courses_list': get_all_courses(),})
+	return render(request, 'rip/index.html')
 
 #@cache_page(TTL)
 def detail(request, course_name):
