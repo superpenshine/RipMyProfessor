@@ -18,18 +18,16 @@ function showHint(typed_letters) {
 	//no clue, no hint
 	console.log(typed_letters);
 	var div = document.getElementById('navbar_hint'), ul = document.createElement('ul');
-	console.log(div.childNodes.length);
-	if (div.childNodes.length != 0) {
-		div.removeChild(div.firstChild);
-		console.log("in remove");
-	}
 
-	if (typed_letters.length != 0) show_hint = true;
-	else {
+	//delete if no char left in the input field
+	if (typed_letters.length === 0) {
 		show_hint = false;
+		div.removeChild(div.firstChild);
+		console.log("delete entirely");
 		return;
-	};
-
+	}
+	//chars left in the input field
+	show_hint = true;
 	ask_server("GET", "/hint"+typed_letters, function(hints){
 		for (var x in hints) {
 			var li = document.createElement('li'), content = document.createTextNode(hints[x]);
@@ -37,7 +35,13 @@ function showHint(typed_letters) {
 			ul.appendChild(li);
 		}
 
-		div.appendChild(ul);
+		if (hints.length != 0) {
+			//display new suggestions, clean up old suggestions.
+			if (div.childNodes.length != 0) div.removeChild(div.firstChild);
+			//assume no new suggestions
+			div.appendChild(ul);
+			//no new suggestion foudn using the clue, delete all !
+		} else if (div.childNodes.length != 0) div.removeChild(div.firstChild); show_hint = false;
 	});
 }
 
