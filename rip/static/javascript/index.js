@@ -16,8 +16,10 @@ if (document.addEventListener){
 
 //auto filling
 function autoFill(value) {
+
 	document.getElementById("navbar_search_input").value = value;
 	document.getElementById("navbar_form").submit();
+	
 }
 
 //giving suggestions to user input
