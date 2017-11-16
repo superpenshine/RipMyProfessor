@@ -11,7 +11,7 @@
 <body>
 <div>
 	<nav class="navbar">
-		<div class="navbar-header"><a class="navbar-brand" href="/courses/">Rip My Professor</a></div>
+		<div class="navbar-header" id="navbarheader"><a class="navbar-brand" href="/index/"><img id="brand_img" src="{% static 'media/brand1.png' %}"></a></div>
 		<div class="navbar-body">
 			<ul class="navbar-ul">
 			<li class="navbar-li"><a href="/courses/">Home</a></li>
@@ -20,13 +20,17 @@
 			<li class="navbar-li"><a href="#">Page3</a></li>
 			</ul>
 		</div>
-		<div class="navbar-searcher">
-			<form action="/index/" method="get">
-			<input type="text" name="subject" placeholder="Search CSC" class="navbar-search-input">
-			<span><button type="submit" name="action" value="search_by_subject" class="navbar-search-button">Search</button></span>
-			</form>
-		</div>
-		<div class="navbar-underlay"></div>
+		<form action="/index/" method="get" id="navbar_form">
+			<div class="navbar-searcher" id="navbarSearcher">
+				<input type="text" name="userInput" placeholder="Search CSC..." class="navbar-search-input hoverinput" id="navbar_search_input" onkeyup="showHint(this.value);" autocomplete="off" autocapitalize="off">
+				<span><button type="submit" name="action" value="search_by_userInput" class="navbar-search-button">Search</button></span>
+				<img id="navbar_magnifier" src="{% static 'media/magnifier.png' %}" onclick="extend();">
+				<img id="navbar_right_arrow" src="{% static 'media/cross.png' %}" onclick="extend();">
+			</div>
+			<div id="navbar_hint"></div>
+			<div id="navbar_extend_div">
+			</div>
+		</form>
 	</nav>
 </div>
 <h1>{{ course.name }}</h1>

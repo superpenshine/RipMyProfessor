@@ -31,13 +31,18 @@ def index(request):
 		return redirect('/index')
 
 	if request.method == 'GET':
-		#search by subject
-		if request.GET.get("action") == "search_by_subject":
-			subject = request.GET.get("subject")
+		#search by userInput
+		if request.GET.get("action") == "search_by_userInput":
+			userInput = request.GET.get("userInput")
 			#show all subjects if empty
-			if subject == "": return render(request, 'rip/courses.html', {'courses': get_all_courses(),})
-			return render(request, 'rip/courses.html', {'courses': get_courses_by_subject(subject),})
-	#not post nor get
+			print("ready: "+userInput)
+			if userInput == "": return render(request, 'rip/courses.html', {'courses': get_all_courses(),})
+			return render(request, 'rip/courses.html', {'courses': get_courses_by_subject(userInput),})
+		#surely sent by js from hints
+		# else:
+		# 	userInput = request.GET.get("userInput")
+		# 	render(request, 'rip/detail.html', {'courses': get_course_detail_by_name(userInput),})
+	#not POST nor GET
 	return render(request, 'rip/index.html')
 
 #@cache_page(TTL)

@@ -14,35 +14,43 @@ if (document.addEventListener){
 	//window.addEventListener("fullscreenchange", updateView, false);
 }
 
+//auto filling
+function autoFill(value) {
+	document.getElementById("navbar_search_input").value = value;
+	document.getElementById("navbar_form").submit();
+}
+
+//giving suggestions to user input
 function showHint(typed_letters) {
-	//no clue, no hint
-	console.log(typed_letters);
+
 	var div = document.getElementById('navbar_hint'), ul = document.createElement('ul');
 
-	//delete if no char left in the input field
-	if (typed_letters.length === 0) {
+	if (typed_letters.length === 0 && div.childNodes.length != 0) {
 		show_hint = false;
 		div.removeChild(div.firstChild);
-		console.log("delete entirely");
 		return;
 	}
+
 	//chars left in the input field
 	show_hint = true;
 	ask_server("GET", "/hint"+typed_letters, function(hints){
+
 		for (var x in hints) {
-			var li = document.createElement('li'), content = document.createTextNode(hints[x]);
-			li.appendChild(content);
+			var li = document.createElement('li'), subdiv = document.createElement('div'), content = document.createTextNode(hints[x]);
+			subdiv.setAttribute('onclick', 'autoFill(this.textContent)');
+			subdiv.appendChild(content);
+			li.appendChild(subdiv);
 			ul.appendChild(li);
 		}
 
 		if (hints.length != 0) {
 			//display new suggestions, clean up old suggestions.
 			if (div.childNodes.length != 0) div.removeChild(div.firstChild);
-			//assume no new suggestions
 			div.appendChild(ul);
-			//no new suggestion foudn using the clue, delete all !
+			//no new suggestion found using the clue, delete all !
 		} else if (div.childNodes.length != 0) div.removeChild(div.firstChild); show_hint = false;
 	});
+
 }
 
 //send customized query to an URL
@@ -80,7 +88,7 @@ function rotate (event) {
 function extend() {
 
 	var header = document.getElementById("navbarheader");
-	var extend = document.getElementById("navbarextendinput");
+	var extend = document.getElementById("navbar_search_input");
 	var arrow = document.getElementById("navbar_right_arrow");
 	var mag = document.getElementById("navbar_magnifier");
 	
@@ -139,6 +147,7 @@ function flyin(o) {
 // }
 
 function unfade(element) {
+
     var op = 0.1;  // initial opacity
     element.style.opacity = 0;
     var timer = setInterval(function () {
@@ -149,6 +158,7 @@ function unfade(element) {
         element.style.filter = 'alpha(opacity=' + op * 100 + ")";
         op += op * 0.1;
     }, 10);
+
 }
 
 function updateView(){
@@ -168,7 +178,6 @@ function updateView(){
 		device_type = 0;
 
 	}
-
 }
 
 function fixedNavbar(){
@@ -178,13 +187,9 @@ function fixedNavbar(){
 		console.log(x_scroll);
 		style = document.getElementById("navbarSearcher").style;
 		//small devices like cellphone
-		if (device_type == 2 && window.pageYOffset > 44){
-			return;
-		}
+		if (device_type == 2 && window.pageYOffset > 44) return;
 		//medium devices like ipad
-		if (device_type == 1 && window.pageYOffset > 6){
-			return;
-		}
+		if (device_type == 1 && window.pageYOffset > 6) return;
 		//large devices like pc
 		console.log("scroll condition unsatisfied");
 		style.position = "";
@@ -196,9 +201,9 @@ function fixedNavbar(){
 
 	}
 
-function checkWord(o){
+function checkWord(value){
 
-	realLength= o.value.length;
+	realLength= value.length;
 	//realLength= getStrleng(o.value);
 	var wck = document.getElementById("wordCheck");
 	console.log(realLength);
@@ -219,21 +224,18 @@ function checkWord(o){
 // 	return myLen;
 // }
 //prevent paste from excessing word limits
-function prevent_paste(o){
+function prevent_paste(value){
 
-	text_length = o.value.length;
+	text_length = value.length;
 
-	if(text_length > max_length){
-		num = o.value.substring(0, max_length);
-	}
+	if(text_length > max_length) num = o.value.substring(0, max_length);
 	
 }
 
 function show(o){
 
 	var popup = document.getElementById(o);
-	if(o != null){
-		popup.classList.toggle("show");
-	}
+
+	if(o != null) popup.classList.toggle("show");
 
 }
