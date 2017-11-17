@@ -35,10 +35,10 @@
 			<li class="navbar-li"><a href="#">Page3</a></li>
 			</ul>
 		</div>
-		<form action="/index/" method="get" id="navbar_form">
+		<form action="/index/" method="get">
 			<div class="navbar-searcher" id="navbarSearcher">
 				<input type="text" name="userInput" placeholder="Search CSC..." class="navbar-search-input hoverinput" id="navbar_search_input" onkeyup="showHint(this.value);" autocomplete="off" autocapitalize="off">
-				<span><button type="submit" name="action" value="search_by_userInput" class="navbar-search-button">Search</button></span>
+				<span><button type="submit" name="action" value="search_by_userInput" class="navbar-search-button" id="navbar_search_button">Search</button></span>
 				<img id="navbar_magnifier" src="{% static 'media/magnifier.png' %}" onclick="extend();">
 				<img id="navbar_right_arrow" src="{% static 'media/cross.png' %}" onclick="extend();">
 			</div>

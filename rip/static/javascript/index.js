@@ -3,23 +3,41 @@ didScroll = false;
 device_type = 0;
 x_scroll = 0;
 do_extend = false;
-show_hint = false;
+show_hint = false;//show hints or not? No matter if there's a suggestion.
 
-updateView();
+updateView(cleanup);
 
 if (document.addEventListener){
 	//window.addEventListener("scroll", fixedNavbar);
-	window.addEventListener("resize", updateView, false);
+	window.addEventListener("resize", function(){
+		updateView(cleanup);
+	});
 	//document.addEventListener("mousemove", function(event){rotate(event)});
 	//window.addEventListener("fullscreenchange", updateView, false);
+}
+
+//cleanup previous states
+function cleanup(){
+
+	document.getElementById("navbar_search_input").style.display = "";
+	document.getElementById("navbarheader").style.display = "";
+	document.getElementById("navbar_right_arrow").style.display = "";
+	document.getElementById("navbar_magnifier").style.display = "";
+	//extend cleanup
+	document.getElementById("navbar_search_input").classList.remove('extend');
+	do_extend = false;
+	//suggestion cleanup
+	div = document.getElementById('navbar_hint');
+	if (div.childNodes.length != 0) div.removeChild(div.firstChild);
+
 }
 
 //auto filling
 function autoFill(value) {
 
 	document.getElementById("navbar_search_input").value = value;
-	document.getElementById("navbar_form").submit();
-	
+	document.getElementById("navbar_search_button").click();
+
 }
 
 //giving suggestions to user input
@@ -27,10 +45,15 @@ function showHint(typed_letters) {
 
 	var div = document.getElementById('navbar_hint'), ul = document.createElement('ul');
 
-	if (typed_letters.length === 0 && div.childNodes.length != 0) {
+	if (typed_letters.length === 0){
+
 		show_hint = false;
-		div.removeChild(div.firstChild);
-		return;
+
+		if(div.childNodes.length != 0) {
+			div.removeChild(div.firstChild);
+			return;
+		}
+
 	}
 
 	//chars left in the input field
@@ -39,18 +62,16 @@ function showHint(typed_letters) {
 
 		for (var x in hints) {
 			var li = document.createElement('li'), subdiv = document.createElement('div'), content = document.createTextNode(hints[x]);
-			subdiv.setAttribute('onclick', 'autoFill(this.textContent)');
+			subdiv.setAttribute("onclick", "autoFill(\""+hints[x]+"\")");
 			subdiv.appendChild(content);
 			li.appendChild(subdiv);
 			ul.appendChild(li);
 		}
-
-		if (hints.length != 0) {
-			//display new suggestions, clean up old suggestions.
-			if (div.childNodes.length != 0) div.removeChild(div.firstChild);
-			div.appendChild(ul);
-			//no new suggestion found using the clue, delete all !
-		} else if (div.childNodes.length != 0) div.removeChild(div.firstChild); show_hint = false;
+		
+		//clean up last results anyway, then append if there's new suggestions
+		if (div.childNodes.length != 0) div.removeChild(div.firstChild);
+		if (hints.length != 0) div.appendChild(ul);
+		
 	});
 
 }
@@ -111,9 +132,9 @@ function extend() {
 	} else {
 
 		mag.style.display = "";
-		unfade(mag);
 		arrow.style.display = "";
 		header.style.display = "";
+		unfade(mag);
 		flyin(header);
 
 	}
@@ -163,23 +184,29 @@ function unfade(element) {
 
 }
 
-function updateView(){
+function updateView(callback){
 
 	console.log("Screen changed");
 
-	if (window.matchMedia('all and (max-width: 442px)').matches){
+	var w = window.outerWidth;
+	var h = window.outerHeight;
+
+
+	if (window.matchMedia('all and (max-width: 620px)').matches){
 		console.log("small");
 		device_type = 2;
 
-	} else if (window.matchMedia('all and (max-width: 838px)').matches){
+	} else if (window.matchMedia('all and (max-width: 1280px)').matches){
 		console.log("middle");
 		device_type = 1;
-
+		callback();
 	} else {
 		console.log("large");
 		device_type = 0;
-
+		callback();
 	}
+
+	return;
 }
 
 function fixedNavbar(){
