@@ -38,11 +38,11 @@
 		<form action="/index/" method="get">
 			<div class="navbar-searcher" id="navbarSearcher">
 				<input type="text" name="userInput" placeholder="Search CSC..." class="navbar-search-input hoverinput" id="navbar_search_input" onkeyup="showHint(this.value);" autocomplete="off" autocapitalize="off">
+				<div id="navbar_hint"></div>
 				<span><button type="submit" name="action" value="search_by_userInput" class="navbar-search-button" id="navbar_search_button">Search</button></span>
 				<img id="navbar_magnifier" src="{% static 'media/magnifier.png' %}" onclick="extend();">
 				<img id="navbar_right_arrow" src="{% static 'media/cross.png' %}" onclick="extend();">
 			</div>
-			<div id="navbar_hint"></div>
 			<div id="navbar_extend_div"></div>
 		</form>
 	</nav>
@@ -71,7 +71,7 @@
 
 		<p></p>
 		<label>course initial score</label>
-		<select name="course_score_initial"><option value=5>5</option><option value=4>4</option><option value=3>3</option><option value=2>2</option><option value=1>1</option></select>
+		<select class="input_course_score" name="course_score_initial"><option value=5>5</option><option value=4>4</option><option value=3>3</option><option value=2>2</option><option value=1>1</option></select>
 		<p></p>
 		<button type="submit" name="action" value="add">Create</button>
 		</form>
@@ -97,8 +97,8 @@
 			<p>Copyright © 2017 Simon Shen; All rights reserved.</p>
 		</div>
 		<div class="footer_icon_div">
-			<div class="qr_div icon_common_style" onclick="show('qr-popup');"><img src="{% static 'media/qr-mini.png' %}"><span class="qrpopup popup_content_common_style" id="qr-popup"><img src="{% static 'media/qr-big.png' %}" class="bigqr"></span></div>
-			<div class="wechat_div icon_common_style" onclick="show('wechat-popup')"><img src="{% static 'media/wechat-mini.png' %}"><span class="wechatpopup popup_content_common_style" id="wechat-popup"><img src="{% static 'media/wechat-big.png' %}" class="bigqr"></span></div>
+			<div class="qr_div icon_common_style" onclick="show('qr-popup');" id="qr_div"><img src="{% static 'media/qr-mini.png' %}"><span class="qrpopup popup_content_common_style" id="qr-popup"><img src="{% static 'media/qr-big.png' %}" class="bigqr"></span></div>
+			<div class="wechat_div icon_common_style" onclick="show('wechat-popup')" id="wechat_div"><img src="{% static 'media/wechat-mini.png' %}"><span class="wechatpopup popup_content_common_style" id="wechat-popup"><img src="{% static 'media/wechat-big.png' %}" class="bigqr"></span></div>
 		</div>
 	</footer>
 </div>

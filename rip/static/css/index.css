@@ -20,6 +20,9 @@
 		margin-right: 10px;
 		background: #030E1E;
 	}
+	#navbar_hint{
+		width: 80vw !important;
+	}
 	button.navbar-search-button{
 		position: absolute !important;
 		margin-left: -9999;
@@ -27,6 +30,9 @@
 	}
 	#navbar_magnifier{
 		display: initial;
+	}
+	.input_course_name, .input_course_fullname{
+		margin-left: 0px !important;
 	}
 	#course_desc_input_box_div{
 		bottom: 0px !important;
@@ -52,9 +58,6 @@
 	}
 	nav.navbar a{
 		color:#b0b389;
-	}
-	.navbar-header{
-		margin-left:10px;
 	}
 	.navbar-body{
 		display: none !important;
@@ -95,8 +98,7 @@
 	float: left;
 	height:60px;
 	width: 220px;
-	margin-right: 1vw;
-	margin-left: 3vw;
+	margin-left: 10px;
 }
 .activated{
 	animation: flyin 1.1s 0s 1 ease-in-out;
@@ -117,6 +119,7 @@
 	display: inline-block;
 	position: relative;
 	top: 18px;
+	margin-left: 20px;
 }
 .navbar-searcher{
 	position: absolute;
@@ -137,9 +140,7 @@
 #navbar_hint{
 	position: absolute;
 	background-color: white;
-	margin-left: 37vw;
-	left: 3vw;
-	top: 50px;
+	top: 37px;
 	width: 40vw;
 	box-shadow: 0px 3px 8px #888888;
 	border-radius: 4px;
@@ -195,11 +196,13 @@
 	font-style: italic;
 }
 
-input.input_course_name{
+.input_course_name{
 	width:70px;
+	margin-left: 43px;
 }
 
-input.input_course_fullname{
+.input_course_fullname{
+	margin-left: 26px;
 	width:200px;
 }
 
@@ -218,6 +221,10 @@ textarea.course_desc{
 
 span.wordCheck{
 	font-size:10px;
+}
+
+.input_course_score{
+	margin-left: 6px;
 }
 
 select:hover{

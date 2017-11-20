@@ -5,30 +5,43 @@ x_scroll = 0;
 do_extend = false;
 show_hint = false;//show hints or not? No matter if there's a suggestion.
 
-updateView(cleanup);
+updateView(cleanUp);
 
 if (document.addEventListener){
 	//window.addEventListener("scroll", fixedNavbar);
-	window.addEventListener("resize", function(){
-		updateView(cleanup);
-	});
 	//document.addEventListener("mousemove", function(event){rotate(event)});
-	//window.addEventListener("fullscreenchange", updateView, false);
+	window.addEventListener("resize", function(){
+		updateView(cleanUp);
+	});
+	document.addEventListener("click", function(event){
+		//not clicking on the search input field
+		console.log(event.target.closest("#qr_div"));
+		console.log(event.target.closest("#wechat_div"));
+		if (event.target.closest("#navbarSearcher") === null) {
+			cleanHint();
+  		}
+
+  		if (event.target.closest("#qr_div") === null) {
+  			//console.log("remove qr");
+			document.getElementById("qr-popup").classList.remove('show');
+  		}
+
+  		if (event.target.closest("#wechat_div") === null) {
+  			//console.log("remove we chat");
+			document.getElementById("wechat-popup").classList.remove('show');
+  		}
+
+	});
+
 }
 
-//cleanup previous states
-function cleanup(){
+//clean up previous states
+function cleanUp(){
 
-	document.getElementById("navbar_search_input").style.display = "";
-	document.getElementById("navbarheader").style.display = "";
-	document.getElementById("navbar_right_arrow").style.display = "";
-	document.getElementById("navbar_magnifier").style.display = "";
-	//extend cleanup
-	document.getElementById("navbar_search_input").classList.remove('extend');
-	do_extend = false;
-	//suggestion cleanup
-	div = document.getElementById('navbar_hint');
-	if (div.childNodes.length != 0) div.removeChild(div.firstChild);
+	//extend cleanUp
+	cleanExtend();
+	//suggestion cleanUp
+	cleanHint();
 
 }
 
@@ -37,6 +50,14 @@ function autoFill(value) {
 
 	document.getElementById("navbar_search_input").value = value;
 	document.getElementById("navbar_search_button").click();
+
+}
+
+function cleanHint(){
+
+	var div = document.getElementById('navbar_hint');
+	if (div.childNodes.length != 0) div.removeChild(div.firstChild);
+	show_hint = false;
 
 }
 
@@ -50,7 +71,7 @@ function showHint(typed_letters) {
 		show_hint = false;
 
 		if(div.childNodes.length != 0) {
-			div.removeChild(div.firstChild);
+			cleanHint();
 			return;
 		}
 
@@ -69,7 +90,7 @@ function showHint(typed_letters) {
 		}
 		
 		//clean up last results anyway, then append if there's new suggestions
-		if (div.childNodes.length != 0) div.removeChild(div.firstChild);
+		if (div.childNodes.length != 0) cleanHint();
 		if (hints.length != 0) div.appendChild(ul);
 		
 	});
@@ -108,6 +129,17 @@ function rotate (event) {
 
 }
 
+//clean extended part
+function cleanExtend(){
+
+	document.getElementById("navbarheader").style.display = "";
+	document.getElementById("navbar_right_arrow").style.display = "";
+	document.getElementById("navbar_magnifier").style.display = "";
+	document.getElementById("navbar_search_input").classList.remove('extend');
+	do_extend = false;
+
+}
+
 function extend() {
 
 	var header = document.getElementById("navbarheader");
@@ -126,8 +158,8 @@ function extend() {
 
 		mag.style.display = "none";
 		arrow.style.display = "initial";
-		unfade(arrow);
 		header.style.display = "none";
+		unfade(arrow);
 
 	} else {
 
@@ -136,6 +168,7 @@ function extend() {
 		header.style.display = "";
 		unfade(mag);
 		flyin(header);
+		cleanHint();
 
 	}
 
@@ -191,7 +224,6 @@ function updateView(callback){
 	var w = window.outerWidth;
 	var h = window.outerHeight;
 
-
 	if (window.matchMedia('all and (max-width: 620px)').matches){
 		console.log("small");
 		device_type = 2;
@@ -207,6 +239,7 @@ function updateView(callback){
 	}
 
 	return;
+
 }
 
 function fixedNavbar(){
@@ -241,18 +274,7 @@ function checkWord(value){
 	wck.innerHTML = max_length - realLength;
 
 }
-//calculate string length
-// function getStrleng(str){
-// 	myLen = 0
-// 	for(i = 0;i < str.length;i++){
-// 		if(str.charCodeAt(i) > 0 && str.charCodeAt(i) < 128)
-// 			myLen++;
-// 		else
-// 			myLen+=2;
-// 	}
-// 	return myLen;
-// }
-//prevent paste from excessing word limits
+
 function prevent_paste(value){
 
 	text_length = value.length;
