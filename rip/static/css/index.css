@@ -198,17 +198,19 @@
 
 .input_course_name{
 	width:70px;
-	margin-left: 43px;
+	position: absolute;
+	left: 16.5vw;
 }
 
 .input_course_fullname{
-	margin-left: 26px;
 	width:200px;
+	position: absolute;
+	left: 16.5vw;
 }
 
 #course_desc_input_box_div{
 	position: relative;
-	padding-left: 153px;
+	margin-left: 15vw;
 	bottom: 20px;
 	margin-bottom: -20px;
 }
@@ -224,7 +226,8 @@ span.wordCheck{
 }
 
 .input_course_score{
-	margin-left: 6px;
+	position: absolute;
+	left: 16.5vw;
 }
 
 select:hover{

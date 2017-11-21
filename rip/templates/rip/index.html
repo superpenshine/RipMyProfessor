@@ -54,13 +54,16 @@
 		<p><b>Create new course</b></p>
 		<form action="/index/" method='post'>
 		{% csrf_token %}
-		<label class="required">course name</label>
-		<input type="text" name="course_name" placeholder="Enter new course" class="input_course_name" required>
+		<div>
+			<label class="required">course name</label>
+			<input type="text" name="course_name" placeholder="Enter new course" class="input_course_name" required>	
+		</div>
 		<p></p>
-		<label>course fullname</label>
-		<input type="text" name="course_fullname" placeholder="Enter full course name" class="input_course_fullname">
+		<div>
+			<label>course fullname</label>
+			<input type="text" name="course_fullname" placeholder="Enter full course name" class="input_course_fullname">	
+		</div>
 		<p></p>
-
 		<div>
 			<label>course description</label>
 			<div id="course_desc_input_box_div">

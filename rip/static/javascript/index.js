@@ -33,26 +33,6 @@ if (document.addEventListener){
 
 	});
 
-	document.addEventListener("touchend", function(event){
-		//not clicking on the search input field
-		console.log(event.target.closest("#qr_div"));
-		console.log(event.target.closest("#wechat_div"));
-		if (event.target.closest("#navbarSearcher") === null) {
-			cleanHint();
-  		}
-
-  		if (event.target.closest("#qr_div") === null) {
-  			//console.log("remove qr");
-			document.getElementById("qr-popup").classList.remove('show');
-  		}
-
-  		if (event.target.closest("#wechat_div") === null) {
-  			//console.log("remove we chat");
-			document.getElementById("wechat-popup").classList.remove('show');
-  		}
-
-	});
-
 }
 
 //clean up previous states
