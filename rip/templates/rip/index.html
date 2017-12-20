@@ -10,14 +10,14 @@
 
 <title>Rip My Professor !</title>
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!--<script async src="https://www.googletagmanager.com/gtag/js?id=UA-108528327-1"></script>-->
+<!-- Global Site Tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=GA_TRACKING_ID"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){dataLayer.push(arguments)};
   gtag('js', new Date());
 
-  gtag('config', 'UA-108528327-1');
+  gtag('config', 'GA_TRACKING_ID');
 </script>
 
 
@@ -39,7 +39,7 @@
 			<div class="navbar-searcher" id="navbarSearcher">
 				<input type="text" name="userInput" placeholder="Search CSC..." class="navbar-search-input hoverinput" id="navbar_search_input" onkeyup="showHint(this.value);" autocomplete="off" autocapitalize="off">
 				<div id="navbar_hint"></div>
-				<span><button type="submit" name="action" value="search_by_userInput" class="navbar-search-button" id="navbar_search_button">Search</button></span>
+				<span><button type="submit" name="action" value="search_by_userInput" class="navbar-search-button" id="navbar_search_button"><b>Search</b></button></span>
 				<img id="navbar_magnifier" src="{% static 'media/magnifier.png' %}" onclick="extend();">
 				<img id="navbar_right_arrow" src="{% static 'media/cross.png' %}" onclick="extend();">
 			</div>
