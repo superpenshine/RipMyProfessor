@@ -56,24 +56,24 @@
 		{% csrf_token %}
 		<div>
 			<label class="required">course name</label>
-			<input type="text" name="course_name" placeholder="Enter new course" class="input_course_name" required>	
+			<input type="text" name="course_name" placeholder="CSC110" class="input_course_name" required>	
 		</div>
 		<p></p>
 		<div>
 			<label>course fullname</label>
-			<input type="text" name="course_fullname" placeholder="Enter full course name" class="input_course_fullname">	
+			<input type="text" name="course_fullname" placeholder="Programming Language" class="input_course_fullname">	
 		</div>
 		<p></p>
 		<div>
 			<label>course description</label>
 			<div id="course_desc_input_box_div">
-				<textarea type="text" name="course_description" placeholder="Enter course description" class="course_desc" maxlength="250" onkeyup="checkWord(this.value);" onPaste="prevent_paste(this.value);"></textarea>
+				<textarea type="text" name="course_description" placeholder="Nice course." class="course_desc" maxlength="250" onkeyup="checkWord(this.value);" onPaste="prevent_paste(this.value);"></textarea>
 				<span id="wordCheck" class="wordCheck">250</span><span class="wordCheck">/250</span>
 			</div>
 		</div>
 
 		<p></p>
-		<label>course initial score</label>
+		<label>course score</label>
 		<select class="input_course_score" name="course_score_initial"><option value=5>5</option><option value=4>4</option><option value=3>3</option><option value=2>2</option><option value=1>1</option></select>
 		<p></p>
 		<button type="submit" name="action" value="add">Create</button>
@@ -87,7 +87,7 @@
 		<form action="/index/" method='post'>
 		{% csrf_token %}
 		<label class="required">course name</label>
-		<input class="input_course_name" type="text" name="course_name" placeholder="Enter a course name to delete" required>
+		<input class="input_course_name" type="text" name="course_name" placeholder="CSC110" required>
 		<p></p>
 		<button type="submit" name="action" value="delete">Delete</button>
 		</form>
@@ -105,7 +105,6 @@
 		</div>
 	</footer>
 </div>
-
 
 <script type="text/javascript" src="{% static 'javascript/index.js'%}"></script>
 </body>

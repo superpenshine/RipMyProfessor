@@ -36,12 +36,8 @@
 	}
 	#course_desc_input_box_div{
 		bottom: 0px !important;
-		padding-left: 0px !important;
+		margin-left: 0px !important;
 		margin-bottom: auto !important;
-	}
-	textarea.course_desc{
-		width: 80vw !important;
-		height: 20vh !important;
 	}
 	.footer_icon_div{
 		margin-left:40vw !important;
@@ -199,18 +195,18 @@
 .input_course_name{
 	width:70px;
 	position: absolute;
-	left: 16.5vw;
+	left: 160px;
 }
 
 .input_course_fullname{
-	width:200px;
+	width:180px;
 	position: absolute;
-	left: 16.5vw;
+	left: 160px;
 }
 
 #course_desc_input_box_div{
 	position: relative;
-	margin-left: 15vw;
+	margin-left: 160px;
 	bottom: 20px;
 	margin-bottom: -20px;
 }
@@ -227,7 +223,7 @@ span.wordCheck{
 
 .input_course_score{
 	position: absolute;
-	left: 16.5vw;
+	left: 160px;
 }
 
 select:hover{
@@ -270,13 +266,11 @@ body {
 }
 
 #body_background {
-	height: 100%;
-	z-index: 0;
-	background-image: url("/static/media/skyline.jpg");
+	background: url("/static/media/skyline.jpg") no-repeat center center;
 }
 
 .delete_course_div{
-	height: 200px;
+	height: 160px;
 }
 
 .footer_div {
